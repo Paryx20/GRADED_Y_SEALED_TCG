@@ -224,6 +224,22 @@ const PRODUCTS = [
   }
 ];
 
+// Funciones auxiliares
+const simularVerificacionBancaria = (esFallo) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (esFallo) {
+        reject(new Error('Transacción rechazada por el emisor bancario.'));
+      } else {
+        resolve({
+          codigoAutorizacion: 'AUTH-' + Math.floor(100000 + Math.random() * 900000),
+          estado: 'APROBADA'
+        });
+      }
+    }, 2400);
+  });
+};
+
 const app = {
   state: {
     currentView: 'view-home',
@@ -1144,24 +1160,31 @@ const app = {
     setTimeout(() => {
       if (progressBar) progressBar.style.width = '70%';
       if (modalText) modalText.innerText = 'Validando protocolo 3D Secure con entidad emisora...';
-    }, 1200);
+    }, 1000);
 
-    setTimeout(() => {
-      if (progressBar) progressBar.style.width = '100%';
-      if (modal) modal.classList.remove('active');
+    simularVerificacionBancaria(isSimulatedFailure)
+      .then((resultado) => {
+        if (progressBar) progressBar.style.width = '100%';
+        if (modal) modal.classList.remove('active');
 
-      if (isSimulatedFailure) {
-        this.showToast('Transacción rechazada por el emisor bancario.', 'error');
-        window.location.href = 'checkout.html#error';
-      } else {
-        const orderData = this.buildOrderData(orderId, nameInput.value.trim(), emailInput.value.trim(), 'Tarjeta de Crédito / Débito (3D Secure)');
+        const orderData = this.buildOrderData(
+          orderId, 
+          nameInput.value.trim(), 
+          emailInput.value.trim(), 
+          `Tarjeta de Crédito / Débito (3D Secure - ${resultado.codigoAutorizacion})`
+        );
         this.saveOrder(orderData);
         this.state.cart = [];
         this.saveCartToStorage();
         this.updateCartBadge();
         window.location.href = 'confirmation.html';
-      }
-    }, 2500);
+      })
+      .catch((error) => {
+        if (progressBar) progressBar.style.width = '100%';
+        if (modal) modal.classList.remove('active');
+        this.showToast(error.message, 'error');
+        window.location.href = 'checkout.html#error';
+      });
   },
 
   buildOrderData(orderId, buyerName, buyerEmail, paymentLabel) {
