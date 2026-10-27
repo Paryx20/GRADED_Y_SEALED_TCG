@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graded &amp; Sealed TCG • Bóveda Oficial de Cartas y Slabs PSA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DC2626',
+              darkred: '#B91C1C',
+              lightred: '#FEF2F2',
+              gold: '#F59E0B',
+              lightgold: '#FEF3C7',
+              darkgold: '#B45309',
+              charcoal: '#0F172A',
+              slate: '#1E293B',
+              muted: '#64748B',
+              border: '#E2E8F0',
+              surface: '#F8FAFC'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            mono: ['Menlo', 'Monaco', 'Consolas', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-full flex flex-col text-brand-charcoal font-sans antialiased bg-slate-50 selection:bg-brand-red selection:text-white overflow-x-hidden relative">
+
+  <div id="toast-container" class="fixed top-6 right-4 z-50 flex flex-col gap-2 max-w-md pointer-events-none" aria-live="polite"></div>
+
+  <div id="undo-banner" class="hidden bg-brand-charcoal text-white px-4 py-3 shadow-lg border-b-2 border-brand-red sticky top-0 z-30 transition-all">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <span class="w-6 h-6 rounded-full bg-emerald-600 flex items-center justify-center text-white text-xs font-bold">
+          <i data-lucide="check" class="w-4 h-4"></i>
+        </span>
+        <span id="undo-text" class="text-sm font-medium">Ítem modificado en la bolsa.</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button 
+          type="button" 
+          onclick="app.undoLastDeletion()" 
+          class="px-4 py-1.5 bg-brand-red hover:bg-brand-darkred text-white text-xs font-bold rounded-md transition flex items-center gap-1.5"
+          aria-label="Deshacer la eliminación del ítem"
+        >
+          <i data-lucide="undo-2" class="w-3.5 h-3.5"></i>
+          <span>Deshacer acción</span>
+        </button>
+        <button 
+          type="button" 
+          onclick="document.getElementById('undo-banner').classList.add('hidden')" 
+          class="p-1 text-slate-400 hover:text-white rounded"
+          aria-label="Cerrar notificación"
+        >
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main class="flex-1 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 space-y-10">
+      
+      <section aria-labelledby="hero-heading" class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white shadow-xl border border-slate-800">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-red/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-10 lg:p-12">
+          <div class="lg:col-span-7 space-y-5">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-amber-300 text-xs font-extrabold tracking-wide uppercase">
+              <i data-lucide="award" class="w-3.5 h-3.5"></i>
+              <span>Coleccionismo de Grado Inversión • Ecuador</span>
+            </div>
+
+            <h1 id="hero-heading" class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white">
+              Bóveda de Coleccionismo Certificado &amp; Slabs PSA
+            </h1>
+
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
+              Adquiere cartas históricas verificadas, expansiones de época selladas y piezas de inversión con entrega segura y garantía de autenticidad.
+            </p>
+
+            <div class="pt-2 flex flex-wrap items-center gap-3.5">
+              <button 
+                type="button" 
+                onclick="app.exploreVaultPSA()" 
+                class="px-6 py-3.5 bg-brand-red hover:bg-brand-darkred text-white text-sm font-extrabold rounded-xl transition shadow-lg flex items-center gap-2 touch-target"
+              >
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                <span>Explorar Bóveda PSA</span>
+              </button>
+
+              <button 
+                type="button" 
+                onclick="app.exploreSealedBoxes()" 
+                class="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white border border-white/20 text-sm font-bold rounded-xl transition flex items-center gap-2 touch-target"
+              >
+                <i data-lucide="package" class="w-4 h-4 text-amber-400"></i>
+                <span>Ver Cajas Selladas</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 flex items-center justify-center">
+            <div 
+              onclick="app.openProductPDP('charizard-base')" 
+              class="cursor-pointer group relative bg-slate-800/70 backdrop-blur-md border border-slate-700/80 rounded-2xl p-5 shadow-2xl max-w-xs w-full transition-transform duration-300 hover:-translate-y-1"
+              role="button"
+              tabindex="0"
+              onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();app.openProductPDP('charizard-base');}"
+              aria-label="Inspeccionar pieza estelar Charizard Base Set 1999 PSA 10"
+            >
+              <div class="flex items-center justify-between mb-3">
+                <span class="px-2.5 py-0.5 rounded text-[10px] font-black bg-amber-400/20 text-amber-300 border border-amber-400/30">
+                  PIEZA ESTELAR PSA 10
+                </span>
+                <span class="text-xs font-bold text-emerald-400 flex items-center gap-1">
+                  <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> +21.7% (12m)
+                </span>
+              </div>
+              <div class="aspect-[4/4] bg-slate-900/90 rounded-xl border border-slate-700 flex items-center justify-center p-4 overflow-hidden">
+                <img 
+                  src="img/charizard-base.png" 
+                  alt="Charizard Base Set 1999 #4/102 PSA 10" 
+                  class="max-h-52 object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-xl" 
+                  onerror="this.onerror=null; this.src='https://images.pokemontcg.io/base1/4_hires.png'"
+                />
+              </div>
+              <div class="mt-3 flex items-center justify-between">
+                <div>
+                  <h2 class="text-sm font-extrabold text-white group-hover:text-amber-300 transition">Charizard Base Set 1999</h2>
+                  <p class="text-[11px] text-slate-400">1st Edition Holo #4/102</p>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] text-slate-400 block">Grado PSA 10</span>
+                  <span class="text-sm font-black text-amber-400">$18,500.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Garantías de compra y seguridad" class="bg-white border border-brand-border rounded-2xl p-5 shadow-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 divide-y sm:divide-y-0 sm:divide-x divide-slate-200">
+          
+          <div class="flex items-start gap-3.5 pt-3 sm:pt-0 first:pt-0 sm:px-3 first:pl-0">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center flex-shrink-0 text-emerald-700">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-xs sm:text-sm font-extrabold text-brand-charcoal">Autenticidad Certificada</h2>
+              <p class="text-xs text-brand-muted mt-0.5 leading-snug">Todas las cartas cuentan con registro verificable en PSA</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3.5 pt-3 sm:pt-0 sm:px-4">
+            <div class="w-10 h-10 rounded-xl bg-red-50 border border-red-200 flex items-center justify-center flex-shrink-0 text-brand-red">
+              <i data-lucide="truck" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-xs sm:text-sm font-extrabold text-brand-charcoal">Envíos Blindados ($5.00)</h2>
+              <p class="text-xs text-brand-muted mt-0.5 leading-snug">Empaque especial en estuche rígido con protección UV</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3.5 pt-3 sm:pt-0 sm:px-4">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center flex-shrink-0 text-amber-700">
+              <i data-lucide="store" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-xs sm:text-sm font-extrabold text-brand-charcoal">Retiro en Local Físico</h2>
+              <p class="text-xs text-brand-muted mt-0.5 leading-snug">Disponible en Sucursal Central Quito en 2 horas</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3.5 pt-3 sm:pt-0 sm:px-4">
+            <div class="w-10 h-10 rounded-xl bg-slate-100 border border-slate-300 flex items-center justify-center flex-shrink-0 text-brand-charcoal">
+              <i data-lucide="lock" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-xs sm:text-sm font-extrabold text-brand-charcoal">Transacciones Protegidas</h2>
+              <p class="text-xs text-brand-muted mt-0.5 leading-snug">Protocolos de pago seguro y custodia en bóveda</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="vault-highlights-section" aria-labelledby="vault-highlights-heading" class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-brand-border pb-3">
+          <div>
+            <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand-red">Selección de Grado Inversión</span>
+            <h2 id="vault-highlights-heading" class="text-xl sm:text-2xl font-black text-brand-charcoal tracking-tight">
+              Tesoros Destacados de la Bóveda
+            </h2>
+          </div>
+          <button 
+            type="button" 
+            onclick="app.filterCategory('Solo PSA'); document.getElementById('catalog-complete-section').scrollIntoView({ behavior: 'smooth' });" 
+            class="text-xs font-extrabold text-brand-red hover:text-brand-darkred inline-flex items-center gap-1 self-start sm:self-auto"
+          >
+            <span>Ver todos los Slabs PSA</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+
+        <div id="curated-vault-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"></div>
+      </section>
+
+      <section id="sealed-vintage-section" aria-labelledby="sealed-vintage-heading" class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-6 sm:p-8 text-white shadow-md border border-slate-700">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-xl">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-[11px] font-extrabold bg-amber-400/20 text-amber-300 border border-amber-400/30">
+              <i data-lucide="Flame" class="w-3.5 h-3.5"></i>
+              <span>EXPANSIONES CLÁSICAS WOTC 1999</span>
+            </span>
+            <h2 id="sealed-vintage-heading" class="text-xl sm:text-2xl font-black tracking-tight text-white">
+              Cajas y Sobres Vintage Sellados
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Sobres originales pesados en báscula de precisión (Heavy Packs) y ediciones selladas de fábrica conservadas en cámara con control de humedad.
+            </p>
+          </div>
+          <button 
+            type="button" 
+            onclick="app.exploreSealedBoxes()" 
+            class="px-5 py-3 bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs sm:text-sm font-black rounded-xl transition shadow flex items-center gap-2 self-start lg:self-center flex-shrink-0"
+          >
+            <i data-lucide="package-open" class="w-4 h-4"></i>
+            <span>Filtrar Booster Packs en Catálogo</span>
+          </button>
+        </div>
+
+        <div id="curated-sealed-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-6"></div>
+      </section>
+
+      <section id="catalog-complete-section" aria-labelledby="catalog-complete-heading" class="space-y-5 pt-2">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+          <div>
+            <span class="text-[11px] font-extrabold uppercase tracking-wider text-brand-muted">Exploración Interactiva</span>
+            <h2 id="catalog-complete-heading" class="text-xl sm:text-2xl font-black text-brand-charcoal tracking-tight">
+              Acceso Rápido al Catálogo Completo
+            </h2>
+          </div>
+          <p class="text-xs text-brand-muted">Haz clic en cualquier tarjeta para inspeccionar grados PSA, precios y gráfica histórica</p>
+        </div>
+
+        <div aria-labelledby="filter-heading" class="bg-white border border-brand-border rounded-xl p-3.5 shadow-sm flex flex-wrap items-center justify-between gap-3">
+          <h3 id="filter-heading" class="sr-only">Filtros de catálogo</h3>
+          
+          <div class="flex items-center gap-2 flex-wrap" role="toolbar" aria-label="Filtros rápidos de categoría">
+            <button 
+              type="button" 
+              onclick="app.filterCategory('Todas')" 
+              data-cat="Todas"
+              class="filter-chip px-4 py-2 text-xs font-bold rounded-full bg-brand-red text-white transition shadow-sm"
+            >
+              Todas
+            </button>
+            
+            <button 
+              type="button" 
+              onclick="app.filterCategory('Cartas Sueltas')" 
+              data-cat="Cartas Sueltas"
+              class="filter-chip px-4 py-2 text-xs font-bold rounded-full border border-slate-300 text-brand-charcoal hover:bg-slate-100 transition"
+            >
+              Cartas Sueltas
+            </button>
+            
+            <button 
+              type="button" 
+              onclick="app.filterCategory('Booster Packs')" 
+              data-cat="Booster Packs"
+              class="filter-chip px-4 py-2 text-xs font-bold rounded-full border border-slate-300 text-brand-charcoal hover:bg-slate-100 transition"
+            >
+              Booster Packs
+            </button>
+            
+            <button 
+              type="button" 
+              onclick="app.filterCategory('Solo PSA')" 
+              data-cat="Solo PSA"
+              id="chip-solo-psa"
+              class="filter-chip px-4 py-2 text-xs font-bold rounded-full border border-slate-300 text-brand-charcoal hover:bg-slate-100 transition relative"
+              aria-label="Filtrar únicamente cartas con graduación oficial PSA"
+            >
+              Solo PSA
+            </button>
+          </div>
+
+          <button 
+            type="button"
+            onclick="app.openAdvancedFilters()" 
+            class="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold border border-brand-charcoal text-brand-charcoal hover:bg-brand-charcoal hover:text-white rounded-lg transition"
+          >
+            <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5"></i>
+            <span>+ Filtros Avanzados</span>
+          </button>
+        </div>
+
+        <div aria-labelledby="products-heading">
+          <h3 id="products-heading" class="sr-only">Listado de productos</h3>
+          <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"></div>
+        </div>
+
+        <nav id="catalog-pagination" aria-label="Paginación del catálogo" class="mt-6 bg-white border border-brand-border rounded-xl p-4 flex flex-wrap items-center justify-between gap-4 shadow-sm text-sm"></nav>
+      </section>
+
+    </div>
+  </main>
+
+  <div id="advanced-filters-drawer" class="drawer-backdrop fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex justify-end" role="dialog" aria-modal="true" aria-labelledby="drawer-filters-title">
+    <div class="drawer-panel bg-white w-full max-w-sm h-full flex flex-col justify-between p-6 shadow-2xl overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-brand-border">
+          <div class="flex items-center gap-2">
+            <i data-lucide="sliders-horizontal" class="w-5 h-5 text-brand-red"></i>
+            <h2 id="drawer-filters-title" class="text-lg font-black text-brand-charcoal">Filtros Avanzados</h2>
+          </div>
+          <button type="button" onclick="app.closeAdvancedFilters()" class="p-1.5 text-slate-400 hover:text-brand-charcoal rounded-lg hover:bg-slate-100 transition" aria-label="Cerrar filtros">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <div class="mt-6 space-y-5">
+          <div>
+            <label for="filter-type" class="block text-xs font-extrabold text-brand-charcoal uppercase tracking-wider mb-1.5">
+              Tipo Elemental:
+            </label>
+            <select id="filter-type" class="w-full px-3.5 py-2.5 text-sm bg-brand-surface border border-brand-border rounded-xl focus:outline-none focus:border-brand-charcoal">
+              <option value="all">Todos los Tipos</option>
+              <option value="Fuego">Fuego</option>
+              <option value="Psíquico">Psíquico</option>
+              <option value="Oscuridad">Oscuridad</option>
+              <option value="Eléctrico">Eléctrico</option>
+              <option value="Agua">Agua</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="filter-rarity" class="block text-xs font-extrabold text-brand-charcoal uppercase tracking-wider mb-1.5">
+              Rareza / Categoría:
+            </label>
+            <select id="filter-rarity" class="w-full px-3.5 py-2.5 text-sm bg-brand-surface border border-brand-border rounded-xl focus:outline-none focus:border-brand-charcoal">
+              <option value="all">Todas las Rarezas</option>
+              <option value="Holo Rare">Holo Rare</option>
+              <option value="Secret Rare">Secret Rare</option>
+              <option value="Gold Star">Gold Star</option>
+              <option value="Promo">Promo</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-extrabold text-brand-charcoal uppercase tracking-wider mb-1.5">
+              Rango de Precio (USD):
+            </label>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <span class="text-[10px] text-brand-muted block mb-0.5">Mínimo:</span>
+                <input type="number" id="filter-min-price" placeholder="0" class="w-full px-3 py-2 text-xs bg-brand-surface border border-brand-border rounded-lg focus:outline-none" />
+              </div>
+              <div>
+                <span class="text-[10px] text-brand-muted block mb-0.5">Máximo:</span>
+                <input type="number" id="filter-max-price" placeholder="100000" class="w-full px-3 py-2 text-xs bg-brand-surface border border-brand-border rounded-lg focus:outline-none" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-brand-border flex items-center gap-3">
+        <button 
+          type="button" 
+          onclick="app.resetAdvancedFilters()" 
+          class="flex-1 py-3 border border-slate-300 text-brand-charcoal hover:bg-slate-100 text-xs font-bold rounded-xl transition"
+        >
+          Limpiar
+        </button>
+        <button 
+          type="button" 
+          onclick="app.applyAdvancedFilters()" 
+          class="flex-1 py-3 bg-brand-red hover:bg-brand-darkred text-white text-xs font-extrabold rounded-xl transition shadow"
+        >
+          Aplicar Filtros
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-slate-100 border-t border-brand-border mt-auto py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-200">
+        <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+          <div class="flex items-center gap-2.5">
+            <img src="img/Logo del e-commerce 1.png" alt="Graded and Sealed TCG" class="h-9 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x40/DC2626/FFFFFF?text=G%26S'" />
+            <span class="font-black text-base text-brand-charcoal tracking-tight">GRADED &amp; SEALED TCG</span>
+          </div>
+          <span class="hidden sm:inline text-slate-300">|</span>
+          <p class="text-xs text-brand-muted max-w-md">
+            Especialistas en preservación y comercialización de coleccionables TCG de alta gama en Ecuador.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-2" aria-label="Métodos de pago aceptados">
+          <span class="text-[11px] font-bold text-brand-muted mr-1">Métodos aceptados:</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white border border-slate-300 text-xs font-black text-blue-900 shadow-sm">
+            <i data-lucide="credit-card" class="w-3.5 h-3.5 text-blue-700"></i>
+            <span>VISA</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white border border-slate-300 text-xs font-black text-slate-800 shadow-sm">
+            <i data-lucide="credit-card" class="w-3.5 h-3.5 text-amber-600"></i>
+            <span>Mastercard</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white border border-slate-300 text-xs font-bold text-emerald-800 shadow-sm">
+            <i data-lucide="banknote" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span>Efectivo en Tienda</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="pt-5 text-center text-xs text-brand-muted font-medium">
+        © 2026 Graded &amp; Sealed TCG. Todos los derechos reservados. Quito, Ecuador.
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

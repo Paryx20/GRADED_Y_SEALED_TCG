@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-50">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmación de Pedido • Graded &amp; Sealed TCG</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DC2626',
+              darkred: '#B91C1C',
+              lightred: '#FEF2F2',
+              gold: '#F59E0B',
+              lightgold: '#FEF3C7',
+              darkgold: '#B45309',
+              charcoal: '#0F172A',
+              slate: '#1E293B',
+              muted: '#64748B',
+              border: '#E2E8F0',
+              surface: '#F8FAFC'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+            mono: ['Menlo', 'Monaco', 'Consolas', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-full flex flex-col text-brand-charcoal font-sans antialiased bg-slate-50 selection:bg-brand-red selection:text-white overflow-x-hidden relative">
+
+  <div id="toast-container" class="fixed top-6 right-4 z-50 flex flex-col gap-2 max-w-md pointer-events-none" aria-live="polite"></div>
+
+  <main class="flex-1 pb-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+      
+      <div class="bg-white border border-brand-border rounded-2xl p-6 sm:p-8 shadow-sm text-center">
+        
+        <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+          <i data-lucide="check-circle-2" class="w-10 h-10"></i>
+        </div>
+
+        <h1 class="text-2xl sm:text-3xl font-black text-brand-charcoal tracking-tight">¡Orden confirmada con éxito!</h1>
+        <div id="confirm-order-id" class="inline-block px-3 py-1 bg-brand-lightgold text-brand-darkgold font-mono font-bold text-sm rounded-md mt-2">
+          Número de Orden: #PKM-2026-PENDING
+        </div>
+        
+        <div id="confirm-cash-notice" class="hidden my-4 p-4 bg-amber-50 border border-amber-200 rounded-xl text-amber-900 text-xs sm:text-sm font-semibold flex items-center justify-center gap-2">
+          <i data-lucide="store" class="w-5 h-5 text-amber-600 flex-shrink-0"></i>
+          <span>Orden reservada con éxito. Recuerda realizar el pago en caja al retirar en el local central.</span>
+        </div>
+
+        <p class="text-sm text-brand-muted mt-3 max-w-lg mx-auto">
+          Hemos enviado el comprobante oficial y el código de seguimiento de custodia a tu correo: 
+          <span id="confirm-email-recipient" class="font-bold text-brand-charcoal">usuario@ejemplo.com</span>
+        </p>
+
+        <div id="confirm-breakdown-container" class="mt-6 text-left bg-brand-surface border border-brand-border rounded-xl p-5 max-w-2xl mx-auto space-y-2.5 text-xs sm:text-sm"></div>
+
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <a 
+            href="tracking.html" 
+            class="px-6 py-3 bg-brand-charcoal hover:bg-slate-800 text-white text-xs sm:text-sm font-bold rounded-xl transition flex items-center gap-2 touch-target"
+          >
+            <i data-lucide="truck" class="w-4 h-4"></i>
+            <span>Ver Seguimiento del Pedido</span>
+          </a>
+          <a 
+            href="home.html" 
+            class="px-6 py-3 bg-white border border-slate-300 hover:bg-slate-50 text-brand-charcoal text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-center touch-target"
+          >
+            Volver a la tienda
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-slate-100 border-t border-brand-border mt-auto py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-slate-200">
+        <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+          <div class="flex items-center gap-2.5">
+            <img src="img/Logo del e-commerce 1.png" alt="Graded and Sealed TCG" class="h-9 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/100x40/DC2626/FFFFFF?text=G%26S'" />
+            <span class="font-black text-base text-brand-charcoal tracking-tight">GRADED &amp; SEALED TCG</span>
+          </div>
+          <span class="hidden sm:inline text-slate-300">|</span>
+          <p class="text-xs text-brand-muted max-w-md">
+            Especialistas en preservación y comercialización de coleccionables TCG de alta gama en Ecuador.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-2" aria-label="Métodos de pago aceptados">
+          <span class="text-[11px] font-bold text-brand-muted mr-1">Métodos aceptados:</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white border border-slate-300 text-xs font-black text-blue-900 shadow-sm">
+            <i data-lucide="credit-card" class="w-3.5 h-3.5 text-blue-700"></i>
+            <span>VISA</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white border border-slate-300 text-xs font-black text-slate-800 shadow-sm">
+            <i data-lucide="credit-card" class="w-3.5 h-3.5 text-amber-600"></i>
+            <span>Mastercard</span>
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white border border-slate-300 text-xs font-bold text-emerald-800 shadow-sm">
+            <i data-lucide="banknote" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span>Efectivo en Tienda</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="pt-5 text-center text-xs text-brand-muted font-medium">
+        © 2026 Graded &amp; Sealed TCG. Todos los derechos reservados. Quito, Ecuador.
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

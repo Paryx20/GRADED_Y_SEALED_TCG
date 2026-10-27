@@ -1,18 +1,10 @@
-/**
- * Graded & Sealed TCG - Production Web Application Engine
- * IHC & WCAG 2.2 Compliant Commercial Architecture
- */
-
 const APP_CONFIG = {
-  TAX_RATE: 0.15, // IVA Ecuador 15%
-  COURIER_SHIPPING_FEE: 5.00, // Envío a domicilio ajustado exactamente a $5.00 USD
+  TAX_RATE: 0.15,
+  COURIER_SHIPPING_FEE: 5.00,
   PICKUP_SHIPPING_FEE: 0.00,
   ITEMS_PER_PAGE: 4
 };
 
-// =========================================================================
-// REQUERIMIENTO 2: CATÁLOGO CENTRALIZADO MAESTRO (PRODUCTS)
-// =========================================================================
 const PRODUCTS = [
   {
     id: 'charizard-base',
@@ -99,87 +91,140 @@ const PRODUCTS = [
       raw: 320.00,
       psa8: 335.00,
       psa9: 350.00,
-      psa10: 450.00
+      psa10: 480.00
     },
-    descripcion: 'Sobre sellado de fábrica 21.2g Heavy Pack • Conservación térmica',
-    tendencia12m: '+6.1%'
-  },
-  {
-    id: 'pikachu-illustrator',
-    nombre: 'Pikachu Illustrator CoroCoro Promo',
-    set: 'Promo Japonesa 1998',
-    rareza: 'Promo',
-    tipo: 'Eléctrico',
-    categoria: 'Solo PSA',
-    imagenLocal: 'img/pikachu-illustrator.png',
-    imagenFallbackUrl: 'https://images.pokemontcg.io/basep/1_hires.png',
-    precios: {
-      raw: 28000.00,
-      psa8: 48000.00,
-      psa9: 68000.00,
-      psa10: 85000.00
-    },
-    descripcion: 'La carta más codiciada de la historia del TCG • Verificación oficial',
+    descripcion: 'Sobre vintage sellado WOTC 1999 • Peso Heavy 20.94g • Garantizado sin abrir',
     tendencia12m: '+31.5%'
   },
   {
-    id: 'rayquaza-gold-star',
-    nombre: 'Rayquaza Gold Star EX Deoxys',
-    set: 'EX Deoxys 2005',
-    rareza: 'Gold Star',
-    tipo: 'Fuego',
-    categoria: 'Cartas Sueltas',
-    imagenLocal: 'img/rayquaza-gold-star.png',
-    imagenFallbackUrl: 'https://images.pokemontcg.io/ex1/96_hires.png',
-    precios: {
-      raw: 1200.00,
-      psa8: 1650.00,
-      psa9: 2100.00,
-      psa10: 4800.00
-    },
-    descripcion: 'Ultra Rare Gold Star #107/107 • Estado impecable de colección',
-    tendencia12m: '+11.8%'
-  },
-  {
-    id: 'blastoise-shadowless',
-    nombre: 'Blastoise Shadowless Base Set 1999',
-    set: 'Base Set 1999',
-    rareza: 'Holo Rare',
-    tipo: 'Agua',
-    categoria: 'Solo PSA',
-    imagenLocal: 'img/blastoise-shadowless.png',
-    imagenFallbackUrl: 'https://images.pokemontcg.io/base1/2_hires.png',
-    precios: {
-      raw: 380.00,
-      psa8: 620.00,
-      psa9: 950.00,
-      psa10: 2400.00
-    },
-    descripcion: 'Holo Shadowless 1999 • Sin sombra de recuadro • Sello PSA oficial',
-    tendencia12m: '+8.3%'
-  },
-  {
-    id: 'booster-base-set-1999',
-    nombre: 'Booster Pack Base Set 1999 1st Edition',
+    id: 'booster-base-set',
+    nombre: 'Booster Pack Base Set 1999 Blister',
     set: 'Base Set 1999',
     rareza: 'Promo',
     tipo: 'Fuego',
     categoria: 'Booster Packs',
-    imagenLocal: 'img/booster-team-rocket.png',
-    imagenFallbackUrl: 'https://images.pokemontcg.io/base1/4_hires.png',
+    imagenLocal: 'img/booster-base.png',
+    imagenFallbackUrl: 'https://images.pokemontcg.io/base1/logo.png',
     precios: {
-      raw: 890.00,
-      psa8: 1150.00,
-      psa9: 1490.00,
-      psa10: 2250.00
+      raw: 450.00,
+      psa8: 480.00,
+      psa9: 550.00,
+      psa10: 890.00
     },
-    descripcion: 'Sobre sellado original 1999 1st Edition • Acrílico protector UV incluido',
-    tendencia12m: '+15.4%'
+    descripcion: 'Sobre de 11 cartas adicionales • Arte Charizard • Empaque Blister original',
+    tendencia12m: '+26.8%'
+  },
+  {
+    id: 'rayquaza-goldstar',
+    nombre: 'Rayquaza Gold Star #107/107',
+    set: 'EX Deoxys 2005',
+    rareza: 'Gold Star',
+    tipo: 'Oscuridad',
+    categoria: 'Solo PSA',
+    imagenLocal: 'img/rayquaza-goldstar.png',
+    imagenFallbackUrl: 'https://images.pokemontcg.io/ex8/107_hires.png',
+    precios: {
+      raw: 1200.00,
+      psa8: 3100.00,
+      psa9: 6800.00,
+      psa10: 24500.00
+    },
+    descripcion: 'Gold Star Ultra Rara • Estuche acrílico PSA • Colección Privada',
+    tendencia12m: '+42.1%'
+  },
+  {
+    id: 'mewtwo-shadowless',
+    nombre: 'Mewtwo Shadowless Holo #10/102',
+    set: 'Base Set 1999',
+    rareza: 'Holo Rare',
+    tipo: 'Psíquico',
+    categoria: 'Cartas Sueltas',
+    imagenLocal: 'img/mewtwo-shadowless.png',
+    imagenFallbackUrl: 'https://images.pokemontcg.io/base1/10_hires.png',
+    precios: {
+      raw: 110.00,
+      psa8: 240.00,
+      psa9: 510.00,
+      psa10: 1250.00
+    },
+    descripcion: 'Versión Shadowless sin sombra • Centrado impecable • Estado NM',
+    tendencia12m: '+11.3%'
+  },
+  {
+    id: 'pikachu-illustrator',
+    nombre: 'Pikachu Promo CoroCoro Holo',
+    set: 'WOTC Promo 1998',
+    rareza: 'Promo',
+    tipo: 'Eléctrico',
+    categoria: 'Solo PSA',
+    imagenLocal: 'img/pikachu-promo.png',
+    imagenFallbackUrl: 'https://images.pokemontcg.io/basep/1_hires.png',
+    precios: {
+      raw: 85.00,
+      psa8: 160.00,
+      psa9: 310.00,
+      psa10: 720.00
+    },
+    descripcion: 'Promo japonesa clásica • Graduación certificada PSA • Slab sellado',
+    tendencia12m: '+16.5%'
+  },
+  {
+    id: 'blastoise-base',
+    nombre: 'Blastoise Base Set 1999 #2/102',
+    set: 'Base Set 1999',
+    rareza: 'Holo Rare',
+    tipo: 'Agua',
+    categoria: 'Cartas Sueltas',
+    imagenLocal: 'img/blastoise-base.png',
+    imagenFallbackUrl: 'https://images.pokemontcg.io/base1/2_hires.png',
+    precios: {
+      raw: 160.00,
+      psa8: 390.00,
+      psa9: 920.00,
+      psa10: 3800.00
+    },
+    descripcion: 'Holo Rare clásica • Arte de Ken Sugimori • Preservación en TopLoader',
+    tendencia12m: '+15.7%'
+  },
+  {
+    id: 'booster-fossil',
+    nombre: 'Booster Pack Fossil 1999 Lapras',
+    set: 'Fossil 1999',
+    rareza: 'Promo',
+    tipo: 'Agua',
+    categoria: 'Booster Packs',
+    imagenLocal: 'img/booster-fossil.png',
+    imagenFallbackUrl: 'https://images.pokemontcg.io/base1/logo.png',
+    precios: {
+      raw: 210.00,
+      psa8: 225.00,
+      psa9: 260.00,
+      psa10: 390.00
+    },
+    descripcion: 'Arte Lapras original • Sobre cerrado de fábrica • Clima controlado',
+    tendencia12m: '+19.2%'
+  },
+  {
+    id: 'espeon-vmax',
+    nombre: 'Espeon VMAX Alt Art Promo #188',
+    set: 'SWSH Promos 2021',
+    rareza: 'Secret Rare',
+    tipo: 'Psíquico',
+    categoria: 'Cartas Sueltas',
+    imagenLocal: 'img/espeon-vmax.png',
+    imagenFallbackUrl: 'https://images.pokemontcg.io/swshp/SWSH188_hires.png',
+    precios: {
+      raw: 140.00,
+      psa8: 185.00,
+      psa9: 230.00,
+      psa10: 360.00
+    },
+    descripcion: 'Alt Art SWSH Promo • Arte durmiente en tejado • Estado Gem Mint Raw',
+    tendencia12m: '+13.8%'
   }
 ];
 
 const app = {
-  // Global application state
   state: {
     currentView: 'view-home',
     activeCategory: 'Todas',
@@ -191,652 +236,146 @@ const app = {
       maxPrice: null
     },
     currentPage: 1,
-    // REQUERIMIENTO 7: Carrito inicializado estrictamente en cero
     cart: [],
     lastDeletedItem: null,
     pendingDeleteItemId: null,
-    deliveryMethod: 'courier', // 'courier' ($5.00) or 'pickup' ($0.00)
+    deliveryMethod: 'courier',
     shippingFee: APP_CONFIG.COURIER_SHIPPING_FEE,
     currentUser: null,
-    // REQUERIMIENTO 2: Ficha dinámica actual seleccionada
     currentPdpProduct: PRODUCTS[0],
     pdpSelectedCondition: 'psa10',
     pdpQuantity: 1
   },
 
-  // =========================================================================
-  // BOOTSTRAP & INITIALIZATION
-  // =========================================================================
   init() {
+    this.initCartFromStorage();
     this.initSessionFromStorage();
-    this.initRouter();
+    this.initUrlParams();
     this.renderCuratedShowcases();
     this.renderCatalog();
     this.renderCart();
+    this.renderDynamicPDP();
+    this.renderDynamicTracking();
+    this.renderConfirmation();
     this.updateCartBadge();
     this.setupSearchSpotlight();
     this.setupPDPChartInteractions();
     this.setupPhoneInput();
     this.setupIdValidation();
-    lucide.createIcons();
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
   },
 
-  // =========================================================================
-  // REQUERIMIENTO 2 & HASH ROUTER CON SOPORTE DE BOTÓN ATRÁS
-  // =========================================================================
-  initRouter() {
-    window.addEventListener('hashchange', () => this.handleHashChange());
-    window.addEventListener('popstate', () => this.handleHashChange());
+  initCartFromStorage() {
+    try {
+      const saved = localStorage.getItem('gstcg_cart');
+      if (saved) {
+        this.state.cart = JSON.parse(saved);
+      }
+    } catch (e) {
+      this.state.cart = [];
+    }
+  },
 
-    if (!window.location.hash) {
-      window.location.hash = '#home';
+  saveCartToStorage() {
+    try {
+      localStorage.setItem('gstcg_cart', JSON.stringify(this.state.cart));
+    } catch (e) {}
+  },
+
+  initUrlParams() {
+    const params = new URLSearchParams(window.location.search);
+    const prodId = params.get('id') || localStorage.getItem('gstcg_current_pdp');
+    if (prodId) {
+      const found = PRODUCTS.find(p => p.id === prodId);
+      if (found) {
+        this.state.currentPdpProduct = found;
+      }
+    }
+    const q = params.get('q');
+    if (q) {
+      this.state.searchQuery = q.toLowerCase().trim();
+      const searchInput = document.getElementById('global-search');
+      if (searchInput) searchInput.value = q;
+    }
+  },
+
+  initSessionFromStorage() {
+    try {
+      const savedUserJson = localStorage.getItem('gstcg_user');
+      if (savedUserJson) {
+        this.state.currentUser = JSON.parse(savedUserJson);
+      }
+    } catch (e) {
+      this.state.currentUser = null;
+    }
+    this.updateNavUserDisplay();
+  },
+
+  updateNavUserDisplay() {
+    const userLabel = document.getElementById('nav-user-label');
+    const logoutBtn = document.getElementById('btn-nav-logout');
+    if (this.state.currentUser) {
+      const firstName = this.state.currentUser.nombre.split(' ')[0];
+      if (userLabel) userLabel.textContent = firstName;
+      if (logoutBtn) logoutBtn.classList.remove('hidden');
     } else {
-      this.handleHashChange();
+      if (userLabel) userLabel.textContent = 'Mi Cuenta';
+      if (logoutBtn) logoutBtn.classList.add('hidden');
     }
   },
 
-  handleHashChange() {
-    const raw = window.location.hash.replace(/^#/, '').trim();
-    const parts = raw.split('?');
-    const route = parts[0].toLowerCase();
-    const params = new URLSearchParams(parts[1] || '');
-
-    // Check dynamic PDP route: #pdp?id=... or #pdp
-    if (route === 'pdp') {
-      const prodId = params.get('id');
-      if (prodId) {
-        const found = PRODUCTS.find(p => p.id === prodId);
-        if (found) {
-          this.state.currentPdpProduct = found;
-          this.state.pdpSelectedCondition = 'psa10';
-          this.state.pdpQuantity = 1;
-        }
-      }
-      this.activateView('view-pdp', false);
-      this.renderDynamicPDP();
-      return;
-    }
-
-    // Direct search results route
-    if (route === 'search-results') {
-      this.activateView('view-home', false);
-      window.scrollTo({ top: 400, behavior: 'smooth' });
-      return;
-    }
-
-    const routeMap = {
-      'home': 'view-home',
-      'cart': 'view-cart',
-      'checkout': 'view-checkout',
-      'confirmation': 'view-confirmation',
-      'tracking': 'view-tracking',
-      'auth': 'view-login',
-      'error': 'view-payment-error'
-    };
-
-    const targetViewId = routeMap[route] || 'view-home';
-    this.activateView(targetViewId, false);
-  },
-
-  navigateTo(target, updateHash = true) {
-    const viewToHashMap = {
-      'view-home': 'home',
-      'view-pdp': 'pdp',
-      'view-cart': 'cart',
-      'view-checkout': 'checkout',
-      'view-confirmation': 'confirmation',
-      'view-tracking': 'tracking',
-      'view-login': 'auth',
-      'view-payment-error': 'error',
-      'home': 'home',
-      'pdp': 'pdp',
-      'cart': 'cart',
-      'checkout': 'checkout',
-      'confirmation': 'confirmation',
-      'tracking': 'tracking',
-      'auth': 'auth',
-      'error': 'error'
-    };
-
-    const hashName = viewToHashMap[target] || 'home';
-    if (updateHash) {
-      if (window.location.hash === `#${hashName}`) {
-        this.handleHashChange();
-      } else {
-        window.location.hash = `#${hashName}`;
-      }
-    } else {
-      this.activateView(target, false);
-    }
-  },
-
-  activateView(viewId, updateHash = true) {
-    if (!viewId.startsWith('view-')) {
-      const aliasMap = {
-        'home': 'view-home',
-        'pdp': 'view-pdp',
-        'cart': 'view-cart',
-        'checkout': 'view-checkout',
-        'confirmation': 'view-confirmation',
-        'tracking': 'view-tracking',
-        'auth': 'view-login',
-        'error': 'view-payment-error'
-      };
-      viewId = aliasMap[viewId] || 'view-home';
-    }
-
-    document.querySelectorAll('.view-section').forEach(section => {
-      section.classList.remove('active');
-    });
-
-    const target = document.getElementById(viewId);
-    if (target) {
-      target.classList.add('active');
-      this.state.currentView = viewId;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      lucide.createIcons();
-
-      // View lifecycle hooks
-      if (viewId === 'view-pdp') {
-        this.renderDynamicPDP();
-      } else if (viewId === 'view-checkout') {
-        this.syncCheckoutWithSession();
-      } else if (viewId === 'view-tracking') {
-        this.renderDynamicTracking();
-      }
-    }
-  },
-
-  // =========================================================================
-  // REQUERIMIENTO 2: FICHA DINÁMICA (PDP) PARA CUALQUIER PRODUCTO
-  // =========================================================================
   openProductPDP(productId) {
     const found = PRODUCTS.find(p => p.id === productId);
     if (found) {
       this.state.currentPdpProduct = found;
       this.state.pdpSelectedCondition = 'psa10';
       this.state.pdpQuantity = 1;
-      if (window.location.hash === `#pdp?id=${found.id}`) {
-        this.activateView('view-pdp', false);
+      localStorage.setItem('gstcg_current_pdp', productId);
+      const pdpView = document.getElementById('view-pdp');
+      if (pdpView && !pdpView.classList.contains('hidden') && pdpView.classList.contains('view-section')) {
+        this.activateView('view-pdp');
         this.renderDynamicPDP();
       } else {
-        window.location.hash = `#pdp?id=${found.id}`;
+        window.location.href = 'pdp.html?id=' + encodeURIComponent(productId);
       }
     }
   },
 
-  renderDynamicPDP() {
-    const product = this.state.currentPdpProduct || PRODUCTS[0];
-    const condition = this.state.pdpSelectedCondition || 'psa10';
-    const currentPrice = product.precios[condition] || product.precios.psa10;
-
-    // Sync PDP quantity display
-    const qtyEl = document.getElementById('pdp-quantity-value');
-    if (qtyEl) qtyEl.innerText = this.state.pdpQuantity || 1;
-
-    // Breadcrumbs
-    const bcSet = document.getElementById('pdp-breadcrumb-set');
-    const bcName = document.getElementById('pdp-breadcrumb-name');
-    if (bcSet) bcSet.innerText = product.set;
-    if (bcName) bcName.innerText = product.nombre;
-
-    // Title & details
-    const titleEl = document.getElementById('pdp-title');
-    const descEl = document.getElementById('pdp-desc');
-    if (titleEl) titleEl.innerText = product.nombre;
-    if (descEl) descEl.innerText = `${product.rareza} • ${product.set} • ${product.tipo} • Bóveda Certificada`;
-
-    // Main Image with local image and official fallback
-    const mainImg = document.getElementById('pdp-main-image');
-    if (mainImg) {
-      mainImg.src = product.imagenLocal;
-      mainImg.alt = product.nombre;
-      mainImg.onerror = function() {
-        this.onerror = null;
-        this.src = product.imagenFallbackUrl;
-      };
+  activateView(viewId) {
+    document.querySelectorAll('.view-section').forEach(section => {
+      section.classList.remove('active');
+    });
+    const target = document.getElementById(viewId);
+    if (target) {
+      target.classList.add('active');
+      this.state.currentView = viewId;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (window.lucide) window.lucide.createIcons();
     }
+  },
 
-    // Cert Badge
-    const certBadge = document.getElementById('pdp-cert-badge');
-    const conditionLabels = {
-      raw: 'Sin Gradear (Raw NM)',
-      psa8: 'PSA 8 NM-MT',
-      psa9: 'PSA 9 MINT',
-      psa10: 'PSA 10 GEM MT'
+  navigateTo(target) {
+    const mapping = {
+      'home': 'home.html',
+      'cart': 'cart.html',
+      'checkout': 'checkout.html',
+      'confirmation': 'confirmation.html',
+      'tracking': 'tracking.html',
+      'auth': 'login.html',
+      'login': 'login.html',
+      'error': 'checkout.html'
     };
-    if (certBadge) certBadge.innerText = `${conditionLabels[condition]} #${product.id.toUpperCase()}-CERT`;
-
-    // Update prices on 4 condition buttons
-    ['raw', 'psa8', 'psa9', 'psa10'].forEach(cKey => {
-      const pEl = document.getElementById(`cond-price-${cKey}`);
-      if (pEl) {
-        pEl.innerText = `$${product.precios[cKey].toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
-      }
-    });
-
-    // Update button active state
-    document.querySelectorAll('.cond-btn').forEach(btn => {
-      btn.className = 'cond-btn p-3 rounded-xl border border-slate-200 text-left hover:border-slate-400 transition bg-white';
-      const p = btn.querySelector('.cond-price');
-      if (p) p.className = 'cond-price text-sm font-black text-brand-muted';
-      const t = btn.querySelector('.cond-title');
-      if (t) t.className = 'cond-title text-xs font-bold text-brand-charcoal';
-      const icon = btn.querySelector('.check-indicator');
-      if (icon) icon.classList.add('hidden');
-    });
-
-    const activeBtn = document.getElementById(`cond-${condition}`);
-    if (activeBtn) {
-      activeBtn.className = 'cond-btn p-3 rounded-xl bg-brand-charcoal text-white text-left shadow transition';
-      const p = activeBtn.querySelector('.cond-price');
-      if (p) p.className = 'cond-price text-sm font-black text-amber-400';
-      const t = activeBtn.querySelector('.cond-title');
-      if (t) t.className = 'cond-title text-xs font-bold text-white';
-      const icon = activeBtn.querySelector('.check-indicator');
-      if (icon) icon.classList.remove('hidden');
-    }
-
-    // Main big price
-    const priceEl = document.getElementById('pdp-price');
-    if (priceEl) {
-      priceEl.innerText = `$${currentPrice.toLocaleString('en-US', { minimumFractionDigits: 2 })} USD`;
-    }
-
-    // Redraw SVG chart for this card and condition
-    this.drawPDPChart();
-    lucide.createIcons();
-  },
-
-  selectPDPCondition(condId) {
-    this.state.pdpSelectedCondition = condId;
-    this.renderDynamicPDP();
-    const product = this.state.currentPdpProduct || PRODUCTS[0];
-    const price = product.precios[condId];
-    this.showToast(`Condición: ${condId.toUpperCase()} ($${price.toLocaleString('en-US')})`, 'info');
-  },
-
-  // 3.2 Selector de Cantidad en Ficha de Producto (PDP)
-  updatePDPQuantity(delta) {
-    const nextQty = (this.state.pdpQuantity || 1) + delta;
-    if (nextQty < 1 || nextQty > 10) return;
-    this.state.pdpQuantity = nextQty;
-    const qtyEl = document.getElementById('pdp-quantity-value');
-    if (qtyEl) qtyEl.innerText = this.state.pdpQuantity;
-  },
-
-  // 3.3 Modal Informativo: "¿Qué es un Grado PSA?"
-  openPSAGuideModal() {
-    const modal = document.getElementById('psa-guide-modal');
-    if (modal) {
-      modal.classList.add('active');
-      lucide.createIcons();
-    }
-  },
-
-  closePSAGuideModal() {
-    const modal = document.getElementById('psa-guide-modal');
-    if (modal) modal.classList.remove('active');
-  },
-
-  addCurrentPDPToCart() {
-    const product = this.state.currentPdpProduct || PRODUCTS[0];
-    const condition = this.state.pdpSelectedCondition || 'psa10';
-    const qty = this.state.pdpQuantity || 1;
-    const conditionLabels = {
-      raw: 'Sin Gradear (Raw NM)',
-      psa8: 'PSA 8 NM-MT',
-      psa9: 'PSA 9 MINT',
-      psa10: 'PSA 10 GEM MT'
-    };
-    const price = product.precios[condition];
-
-    this.addToCart(
-      `${product.id}-${condition}`,
-      product.nombre,
-      conditionLabels[condition],
-      price,
-      product.imagenLocal,
-      product.imagenFallbackUrl,
-      qty
-    );
-
-    // Reset quantity selector back to 1 after adding
-    this.state.pdpQuantity = 1;
-    const qtyEl = document.getElementById('pdp-quantity-value');
-    if (qtyEl) qtyEl.innerText = '1';
-  },
-
-  // 12-Month Historical Chart Generator scaled to current product price and condition variability
-  drawPDPChart() {
-    const product = this.state.currentPdpProduct || PRODUCTS[0];
-    const condition = this.state.pdpSelectedCondition || 'psa10';
-    const basePrice = product.precios[condition] || 1000;
-
-    // REQUERIMIENTO 2: Variabilidad Realista en Historial de Mercado (Tendencias Negativas)
-    let trendBadge = '+21.7%';
-    let isPositive = true;
-    let multipliers = [];
-
-    if (condition === 'raw') {
-      trendBadge = '-12.3%';
-      isPositive = false;
-      // Trayectoria descendente: inicia 14% más alto y cae al precio actual
-      multipliers = [1.14, 1.13, 1.12, 1.10, 1.08, 1.07, 1.05, 1.04, 1.03, 1.02, 1.01, 1.00];
-    } else if (condition === 'psa8') {
-      trendBadge = '-4.8%';
-      isPositive = false;
-      // Trayectoria con caída hacia el final
-      multipliers = [1.05, 1.05, 1.04, 1.04, 1.03, 1.03, 1.02, 1.02, 1.01, 1.01, 1.00, 1.00];
-    } else if (condition === 'psa9') {
-      trendBadge = '+6.5%';
-      isPositive = true;
-      multipliers = [0.94, 0.94, 0.95, 0.95, 0.96, 0.97, 0.97, 0.98, 0.98, 0.99, 0.99, 1.00];
-    } else { // psa10
-      trendBadge = '+21.7%';
-      isPositive = true;
-      multipliers = [0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.95, 0.97, 0.98, 0.99, 1.00];
-    }
-
-    const trendPill = document.getElementById('market-trend-pill');
-    if (trendPill) {
-      trendPill.innerText = trendBadge;
-      trendPill.className = isPositive 
-        ? 'text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded' 
-        : 'text-[11px] font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded';
-    }
-
-    const svg = document.getElementById('pdp-interactive-chart');
-    if (!svg) return;
-
-    // Generate 12 months data scaled around current price
-    const months = ['Oct 2025', 'Nov 2025', 'Dic 2025', 'Ene 2026', 'Feb 2026', 'Mar 2026', 'Abr 2026', 'May 2026', 'Jun 2026', 'Jul 2026', 'Ago 2026', 'Sep 2026 (Hoy)'];
-
-    const points = months.map((m, idx) => {
-      const p = Math.round(basePrice * multipliers[idx]);
-      const diff = ((multipliers[idx] - multipliers[0]) / multipliers[0]) * 100;
-      const sign = diff >= 0 ? '+' : '';
-      return {
-        month: m,
-        price: p,
-        trend: idx === 0 ? '+0.0%' : `${sign}${diff.toFixed(1)}%`
-      };
-    });
-
-    const width = 400;
-    const height = 130;
-    const paddingX = 30;
-    const paddingY = 25;
-    const plotW = width - (paddingX * 2);
-    const plotH = height - (paddingY * 2);
-
-    const prices = points.map(p => p.price);
-    const minP = Math.min(...prices) * 0.96;
-    const maxP = Math.max(...prices) * 1.04;
-
-    const coords = points.map((pt, idx) => {
-      const x = paddingX + (idx / (points.length - 1)) * plotW;
-      const normalizedY = (pt.price - minP) / (maxP - minP);
-      const y = height - paddingY - (normalizedY * plotH);
-      return { x, y, pt };
-    });
-
-    const pointsStr = coords.map(c => `${c.x.toFixed(1)},${c.y.toFixed(1)}`).join(' ');
-    const polylineEl = document.getElementById('chart-polyline');
-    if (polylineEl) {
-      polylineEl.setAttribute('points', pointsStr);
-      polylineEl.setAttribute('stroke', isPositive ? '#16A34A' : '#DC2626');
-    }
-
-    const lastCoord = coords[coords.length - 1];
-    const activeDot = document.getElementById('chart-active-dot');
-    if (activeDot) {
-      activeDot.setAttribute('cx', lastCoord.x);
-      activeDot.setAttribute('cy', lastCoord.y);
-      activeDot.setAttribute('fill', isPositive ? '#16A34A' : '#DC2626');
-    }
-
-    svg._chartCoords = coords;
-  },
-
-  setupPDPChartInteractions() {
-    const container = document.getElementById('pdp-chart-container');
-    const svg = document.getElementById('pdp-interactive-chart');
-    const tooltip = document.getElementById('chart-hover-tooltip');
-    const guideLine = document.getElementById('chart-guide-line');
-    const hoverDot = document.getElementById('chart-hover-dot');
-
-    if (!container || !svg || !tooltip) return;
-
-    const handlePointerMove = (e) => {
-      if (!svg._chartCoords || svg._chartCoords.length === 0) return;
-
-      const rect = svg.getBoundingClientRect();
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-
-      if (clientX < rect.left || clientX > rect.right) {
-        hideTooltip();
-        return;
-      }
-
-      const svgX = ((clientX - rect.left) / rect.width) * 400;
-
-      let nearest = svg._chartCoords[0];
-      let minDiff = Infinity;
-      for (const c of svg._chartCoords) {
-        const diff = Math.abs(c.x - svgX);
-        if (diff < minDiff) {
-          minDiff = diff;
-          nearest = c;
-        }
-      }
-
-      if (guideLine) {
-        guideLine.setAttribute('x1', nearest.x);
-        guideLine.setAttribute('x2', nearest.x);
-        guideLine.setAttribute('y1', 15);
-        guideLine.setAttribute('y2', 115);
-        guideLine.style.display = 'block';
-      }
-
-      if (hoverDot) {
-        hoverDot.setAttribute('cx', nearest.x);
-        hoverDot.setAttribute('cy', nearest.y);
-        hoverDot.style.display = 'block';
-      }
-
-      const pixelX = (nearest.x / 400) * rect.width;
-      const pixelY = (nearest.y / 130) * rect.height;
-
-      tooltip.style.left = `${pixelX}px`;
-      tooltip.style.top = `${pixelY - 12}px`;
-      tooltip.style.opacity = '1';
-
-      const isUp = !nearest.pt.trend.startsWith('-');
-      tooltip.innerHTML = `
-        <div class="px-2.5 py-1.5 bg-brand-charcoal text-white rounded-lg shadow-xl text-[11px] border border-slate-700 whitespace-nowrap">
-          <div class="text-[10px] text-slate-400 font-bold">${nearest.pt.month}</div>
-          <div class="font-black text-xs text-white mt-0.5">$${nearest.pt.price.toLocaleString('en-US')} USD</div>
-          <div class="text-[10px] font-bold ${isUp ? 'text-emerald-400' : 'text-red-400'} flex items-center gap-1 mt-0.5">
-            <span>${nearest.pt.trend}</span>
-            <span>${isUp ? '▲' : '▼'}</span>
-          </div>
-        </div>
-      `;
-    };
-
-    const hideTooltip = () => {
-      tooltip.style.opacity = '0';
-      if (guideLine) guideLine.style.display = 'none';
-      if (hoverDot) hoverDot.style.display = 'none';
-    };
-
-    container.addEventListener('mousemove', handlePointerMove);
-    container.addEventListener('mouseleave', hideTooltip);
-    container.addEventListener('touchmove', handlePointerMove, { passive: true });
-    container.addEventListener('touchend', hideTooltip);
-  },
-
-  // =========================================================================
-  // REQUERIMIENTO 4: BUSCADOR CON EFECTO SPOTLIGHT Y RESULTADOS
-  // =========================================================================
-  setupSearchSpotlight() {
-    const searchInput = document.getElementById('global-search');
-    const backdrop = document.getElementById('search-spotlight-backdrop');
-    const container = document.getElementById('search-container');
-    const dropdown = document.getElementById('search-live-dropdown');
-
-    if (!searchInput || !backdrop) return;
-
-    const openSpotlight = () => {
-      backdrop.classList.add('active');
-      if (container) container.classList.add('focused');
-      this.renderLiveSearchResults(searchInput.value);
-    };
-
-    const closeSpotlight = () => {
-      backdrop.classList.remove('active');
-      if (container) container.classList.remove('focused');
-      if (dropdown) dropdown.classList.add('hidden');
-    };
-
-    searchInput.addEventListener('focus', openSpotlight);
-
-    searchInput.addEventListener('input', (e) => {
-      this.state.searchQuery = e.target.value.toLowerCase().trim();
-      this.renderLiveSearchResults(this.state.searchQuery);
-    });
-
-    searchInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        searchInput.blur();
-        closeSpotlight();
-      } else if (e.key === 'Enter') {
-        e.preventDefault();
-        closeSpotlight();
-        this.executeSearchQuery(searchInput.value);
-      }
-    });
-
-    backdrop.addEventListener('click', () => {
-      searchInput.blur();
-      closeSpotlight();
-    });
-  },
-
-  renderLiveSearchResults(query) {
-    const dropdown = document.getElementById('search-live-dropdown');
-    if (!dropdown) return;
-
-    query = (query || '').toLowerCase().trim();
-    const matches = PRODUCTS.filter(p => 
-      p.nombre.toLowerCase().includes(query) || 
-      p.set.toLowerCase().includes(query) ||
-      p.tipo.toLowerCase().includes(query)
-    ).slice(0, 4);
-
-    if (matches.length === 0) {
-      dropdown.innerHTML = `
-        <div class="p-4 text-center text-xs text-brand-muted">
-          No se encontraron cartas que coincidan con "${query}".
-        </div>
-      `;
-      dropdown.classList.remove('hidden');
-      return;
-    }
-
-    dropdown.innerHTML = `
-      <div class="p-2 border-b border-slate-100 text-[10px] font-bold text-brand-muted uppercase tracking-wider flex justify-between items-center">
-        <span>Cartas encontradas en la Bóveda</span>
-        <span>${matches.length} sugerencias</span>
-      </div>
-      <div class="divide-y divide-slate-100">
-        ${matches.map(card => `
-          <div onclick="app.selectSearchCard('${card.id}')" class="p-2.5 flex items-center justify-between hover:bg-slate-50 cursor-pointer rounded-lg transition group">
-            <div class="flex items-center gap-3">
-              <img 
-                src="${card.imagenLocal}" 
-                alt="${card.nombre}" 
-                class="w-8 h-11 object-contain bg-slate-50 border border-slate-200 rounded p-0.5" 
-                onerror="this.onerror=null; this.src='${card.imagenFallbackUrl}'"
-              />
-              <div>
-                <h4 class="text-xs font-bold text-brand-charcoal group-hover:text-brand-red transition">${card.nombre}</h4>
-                <span class="text-[10px] text-brand-muted">${card.set} • ${card.rareza}</span>
-              </div>
-            </div>
-            <div class="text-right">
-              <span class="text-xs font-black text-brand-charcoal">$${card.precios.psa10.toLocaleString('en-US')}</span>
-              <span class="block text-[9px] text-brand-muted">PSA 10</span>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-      <div class="p-2 border-t border-slate-100 text-center">
-        <button type="button" onclick="app.executeSearchQuery('${query}')" class="text-xs font-bold text-brand-red hover:text-brand-darkred">
-          Ver todos los resultados en el catálogo →
-        </button>
-      </div>
-    `;
-    dropdown.classList.remove('hidden');
-    lucide.createIcons();
-  },
-
-  selectSearchCard(cardId) {
-    const backdrop = document.getElementById('search-spotlight-backdrop');
-    if (backdrop) backdrop.classList.remove('active');
-    const dropdown = document.getElementById('search-live-dropdown');
-    if (dropdown) dropdown.classList.add('hidden');
-    this.openProductPDP(cardId);
-  },
-
-  executeSearchQuery(query) {
-    const backdrop = document.getElementById('search-spotlight-backdrop');
-    if (backdrop) backdrop.classList.remove('active');
-    const dropdown = document.getElementById('search-live-dropdown');
-    if (dropdown) dropdown.classList.add('hidden');
-
-    this.state.searchQuery = (query || '').toLowerCase().trim();
-    this.state.currentPage = 1;
-    this.renderCatalog();
-    if (this.state.currentView !== 'view-home') {
-      this.navigateTo('home');
-    }
-    const catalogSec = document.getElementById('catalog-complete-section');
-    if (catalogSec) {
-      catalogSec.scrollIntoView({ behavior: 'smooth' });
-    }
-    this.showToast(`Búsqueda ejecutada: "${query}"`, 'info');
-  },
-
-  // =========================================================================
-  // 1.1 & 1.3 HERO CTAs & VITRINAS CURADAS DEL HOME
-  // =========================================================================
-  exploreVaultPSA() {
-    this.filterCategory('Solo PSA');
-    const vaultSection = document.getElementById('vault-highlights-section');
-    if (vaultSection) {
-      vaultSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  },
-
-  exploreSealedBoxes() {
-    this.filterCategory('Booster Packs');
-    const catalogSection = document.getElementById('catalog-complete-section');
-    if (catalogSection) {
-      catalogSection.scrollIntoView({ behavior: 'smooth' });
-    }
-    this.showToast('Mostrando Cajas y Sobres Sellados (Booster Packs)', 'info');
+    const dest = mapping[target] || (target + '.html');
+    window.location.href = dest;
   },
 
   renderCuratedShowcases() {
-    // Bloque A: Tesoros Destacados de la Bóveda (Charizard, Umbreon, Lugia, Gengar)
     const vaultGrid = document.getElementById('curated-vault-grid');
     if (vaultGrid) {
       const featuredIds = ['charizard-base', 'umbreon-vmax', 'lugia-neo', 'gengar-vmax'];
-      const featuredCards = featuredIds
-        .map(id => PRODUCTS.find(p => p.id === id))
-        .filter(Boolean);
+      const featuredCards = featuredIds.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
 
       vaultGrid.innerHTML = featuredCards.map(card => `
         <article 
@@ -862,30 +401,30 @@ const app = {
                 onerror="this.onerror=null; this.src='${card.imagenFallbackUrl}'"
               />
             </div>
-            <div class="mt-3">
-              <span class="inline-block text-[10px] font-bold text-brand-muted uppercase tracking-wider">${card.set} • ${card.rareza}</span>
-              <h3 class="font-extrabold text-sm sm:text-base text-brand-charcoal group-hover:text-brand-red transition mt-0.5 line-clamp-1">${card.nombre}</h3>
-            </div>
+            <h3 class="mt-3 text-sm font-extrabold text-brand-charcoal group-hover:text-brand-red transition line-clamp-1">
+              ${card.nombre}
+            </h3>
+            <p class="text-[11px] text-brand-muted mt-0.5 line-clamp-1">${card.set}</p>
           </div>
-
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+          <div class="mt-4 pt-3 border-t border-brand-border flex items-center justify-between">
             <div>
-              <span class="text-[10px] text-brand-muted block">Valor PSA 10</span>
-              <span class="text-base font-black text-brand-charcoal">$${card.precios.psa10.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
+              <span class="text-[10px] text-brand-muted block">Desde (Raw)</span>
+              <span class="text-xs font-bold text-slate-700">$${card.precios.raw.toFixed(2)}</span>
             </div>
-            <span class="px-3 py-1.5 text-xs font-extrabold text-brand-red bg-red-50 group-hover:bg-brand-red group-hover:text-white rounded-lg transition inline-flex items-center gap-1">
-              <span>Inspeccionar</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </span>
+            <div class="text-right">
+              <span class="text-[10px] font-bold text-amber-600 block">PSA 10</span>
+              <span class="text-sm font-black text-brand-charcoal">$${card.precios.psa10.toFixed(2)}</span>
+            </div>
           </div>
         </article>
       `).join('');
     }
 
-    // Bloque B: Cajas y Sobres Vintage Sellados (Booster Packs 1999)
     const sealedGrid = document.getElementById('curated-sealed-grid');
     if (sealedGrid) {
-      const sealedPacks = PRODUCTS.filter(p => p.categoria === 'Booster Packs');
+      const sealedIds = ['booster-team-rocket', 'booster-base-set'];
+      const sealedPacks = sealedIds.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
+
       sealedGrid.innerHTML = sealedPacks.map(pack => `
         <article 
           onclick="app.openProductPDP('${pack.id}')" 
@@ -905,18 +444,20 @@ const app = {
           </div>
           <div class="flex-1 text-center sm:text-left space-y-2">
             <div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-black bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-              <span>SELLADO DE FÁBRICA • 1999</span>
+              <i data-lucide="shield-check" class="w-3 h-3 text-emerald-400"></i>
+              <span>SELLADO DE ÉPOCA • NO PESADO / HEAVY</span>
             </div>
-            <h3 class="text-base sm:text-lg font-black text-white group-hover:text-amber-300 transition">${pack.nombre}</h3>
-            <p class="text-xs text-slate-300 leading-relaxed">${pack.descripcion}</p>
-            <div class="pt-2 flex items-center justify-center sm:justify-between gap-4 border-t border-slate-700/80">
+            <h3 class="text-base font-black text-white group-hover:text-amber-300 transition leading-snug">
+              ${pack.nombre}
+            </h3>
+            <p class="text-xs text-slate-300 line-clamp-2">${pack.descripcion}</p>
+            <div class="pt-2 flex items-center justify-between sm:justify-start gap-4">
               <div>
-                <span class="text-[10px] text-slate-400 block">Desde (Sellado Raw)</span>
-                <span class="text-lg font-black text-amber-400">$${pack.precios.raw.toLocaleString('en-US', { minimumFractionDigits: 2 })} USD</span>
+                <span class="text-[10px] text-slate-400 block uppercase">Inversión Certificada</span>
+                <span class="text-base font-black text-amber-400">$${pack.precios.raw.toFixed(2)} USD</span>
               </div>
-              <span class="px-3.5 py-2 rounded-xl bg-white/10 group-hover:bg-amber-400 group-hover:text-slate-950 text-white text-xs font-extrabold transition inline-flex items-center gap-1">
-                <span>Ver Ficha</span>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              <span class="text-xs font-bold text-emerald-400 flex items-center gap-1">
+                <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> ${pack.tendencia12m}
               </span>
             </div>
           </div>
@@ -925,16 +466,25 @@ const app = {
     }
   },
 
-  // =========================================================================
-  // CATÁLOGO, FILTROS Y PAGINACIÓN
-  // =========================================================================
-  filterCategory(category) {
-    this.state.activeCategory = category;
+  exploreVaultPSA() {
+    this.filterCategory('Solo PSA');
+    const el = document.getElementById('catalog-complete-section');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  },
+
+  exploreSealedBoxes() {
+    this.filterCategory('Booster Packs');
+    const el = document.getElementById('catalog-complete-section');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  },
+
+  filterCategory(cat) {
+    this.state.activeCategory = cat;
     this.state.currentPage = 1;
 
     document.querySelectorAll('.filter-chip').forEach(btn => {
-      const btnCat = btn.getAttribute('data-cat') || btn.innerText;
-      if (btnCat.includes(category)) {
+      const btnCat = btn.getAttribute('data-cat');
+      if (btnCat === cat) {
         btn.className = 'filter-chip px-4 py-2 text-xs font-bold rounded-full bg-brand-red text-white transition shadow-sm';
       } else {
         btn.className = 'filter-chip px-4 py-2 text-xs font-bold rounded-full border border-slate-300 text-brand-charcoal hover:bg-slate-100 transition';
@@ -942,9 +492,6 @@ const app = {
     });
 
     this.renderCatalog();
-    if (this.state.currentView !== 'view-home') {
-      this.navigateTo('home');
-    }
   },
 
   openAdvancedFilters() {
@@ -960,15 +507,13 @@ const app = {
   applyAdvancedFilters() {
     const typeSelect = document.getElementById('filter-type');
     const raritySelect = document.getElementById('filter-rarity');
-    const minPriceInput = document.getElementById('filter-min-price');
-    const maxPriceInput = document.getElementById('filter-max-price');
+    const minInput = document.getElementById('filter-min-price');
+    const maxInput = document.getElementById('filter-max-price');
 
-    this.state.advancedFilters = {
-      type: typeSelect ? typeSelect.value : 'all',
-      rarity: raritySelect ? raritySelect.value : 'all',
-      minPrice: minPriceInput && minPriceInput.value ? parseFloat(minPriceInput.value) : null,
-      maxPrice: maxPriceInput && maxPriceInput.value ? parseFloat(maxPriceInput.value) : null
-    };
+    this.state.advancedFilters.type = typeSelect ? typeSelect.value : 'all';
+    this.state.advancedFilters.rarity = raritySelect ? raritySelect.value : 'all';
+    this.state.advancedFilters.minPrice = minInput && minInput.value ? parseFloat(minInput.value) : null;
+    this.state.advancedFilters.maxPrice = maxInput && maxInput.value ? parseFloat(maxInput.value) : null;
 
     this.state.currentPage = 1;
     this.closeAdvancedFilters();
@@ -1004,16 +549,18 @@ const app = {
         return false;
       }
       if (this.state.searchQuery) {
-        const matchesName = card.nombre.toLowerCase().includes(this.state.searchQuery);
-        const matchesSet = card.set.toLowerCase().includes(this.state.searchQuery);
-        if (!matchesName && !matchesSet) return false;
+        const q = this.state.searchQuery;
+        const match = card.nombre.toLowerCase().includes(q) ||
+                      card.set.toLowerCase().includes(q) ||
+                      card.tipo.toLowerCase().includes(q) ||
+                      card.rareza.toLowerCase().includes(q);
+        if (!match) return false;
       }
-      const adv = this.state.advancedFilters;
-      if (adv.type !== 'all' && card.tipo !== adv.type) return false;
-      if (adv.rarity !== 'all' && card.rareza !== adv.rarity) return false;
-      if (adv.minPrice !== null && card.precios.psa10 < adv.minPrice) return false;
-      if (adv.maxPrice !== null && card.precios.psa10 > adv.maxPrice) return false;
-
+      const af = this.state.advancedFilters;
+      if (af.type !== 'all' && card.tipo !== af.type) return false;
+      if (af.rarity !== 'all' && card.rareza !== af.rarity) return false;
+      if (af.minPrice !== null && card.precios.raw < af.minPrice) return false;
+      if (af.maxPrice !== null && card.precios.raw > af.maxPrice) return false;
       return true;
     });
   },
@@ -1029,27 +576,25 @@ const app = {
     if (this.state.currentPage > totalPages) this.state.currentPage = 1;
 
     const startIndex = (this.state.currentPage - 1) * APP_CONFIG.ITEMS_PER_PAGE;
-    const pagedItems = filtered.slice(startIndex, startIndex + APP_CONFIG.ITEMS_PER_PAGE);
+    const pageItems = filtered.slice(startIndex, startIndex + APP_CONFIG.ITEMS_PER_PAGE);
 
-    if (pagedItems.length === 0) {
+    if (pageItems.length === 0) {
       grid.innerHTML = `
-        <div class="col-span-full py-16 text-center bg-white border border-brand-border rounded-2xl p-8">
-          <i data-lucide="search-x" class="w-12 h-12 mx-auto text-slate-300 mb-3"></i>
-          <h3 class="text-base font-bold text-brand-charcoal">No se encontraron cartas</h3>
-          <p class="text-xs text-brand-muted mt-1">Intenta con otro término o limpia los filtros.</p>
-          <button onclick="app.resetAdvancedFilters(); app.filterCategory('Todas');" class="mt-4 px-4 py-2 bg-brand-red text-white text-xs font-bold rounded-lg shadow-sm">
-            Ver todas las cartas
+        <div class="col-span-full bg-white border border-brand-border rounded-xl p-12 text-center text-brand-muted">
+          <i data-lucide="package-x" class="w-12 h-12 mx-auto mb-3 text-slate-300"></i>
+          <p class="text-sm font-bold text-brand-charcoal">No se encontraron productos con los filtros seleccionados.</p>
+          <button onclick="app.resetAdvancedFilters(); app.filterCategory('Todas');" class="mt-4 px-4 py-2 bg-brand-red text-white text-xs font-bold rounded-lg">
+            Limpiar todos los filtros
           </button>
         </div>
       `;
-      this.renderPagination(0, 0, 1);
-      lucide.createIcons();
+      this.renderPagination(0, 1, 1);
+      if (window.lucide) window.lucide.createIcons();
       return;
     }
 
-    // 3.1 Tarjeta Clickeable Unificada (Ley de Fitts): Todo el contenedor <article> redirige a #pdp
-    grid.innerHTML = pagedItems.map(card => `
-      <article 
+    grid.innerHTML = pageItems.map(card => `
+      <div 
         onclick="app.openProductPDP('${card.id}')" 
         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();app.openProductPDP('${card.id}');}"
         role="button"
@@ -1065,71 +610,90 @@ const app = {
               class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" 
               onerror="this.onerror=null; this.src='${card.imagenFallbackUrl}'"
             />
+            <span class="absolute top-2 right-2 px-2 py-0.5 text-[9px] font-black bg-slate-900/80 text-white rounded">
+              ${card.tipo}
+            </span>
           </div>
 
           <div class="mt-3">
-            <span class="inline-block text-[10px] font-bold text-brand-muted uppercase tracking-wider">${card.tipo} • ${card.rareza}</span>
-            <h3 class="font-extrabold text-sm sm:text-base text-brand-charcoal group-hover:text-brand-red transition mt-0.5 line-clamp-1">${card.nombre}</h3>
-            <p class="text-xs text-brand-muted mt-0.5">${card.set}</p>
+            <span class="text-[10px] font-bold text-brand-muted uppercase">${card.set}</span>
+            <h4 class="text-sm font-extrabold text-brand-charcoal group-hover:text-brand-red transition line-clamp-1">
+              ${card.nombre}
+            </h4>
+            <p class="text-xs text-brand-muted line-clamp-1 mt-0.5">${card.rareza} • ${card.categoria}</p>
           </div>
         </div>
 
-        <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+        <div class="mt-4 pt-3 border-t border-brand-border flex items-center justify-between">
           <div>
-            <span class="text-xs text-brand-muted block">Desde</span>
-            <span class="text-base font-black text-brand-charcoal">$${card.precios.raw.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
+            <span class="text-[10px] text-brand-muted block">Precio base</span>
+            <span class="text-sm font-black text-brand-charcoal">$${card.precios.raw.toFixed(2)}</span>
           </div>
-          <span 
-            class="px-3.5 py-1.5 text-xs font-extrabold text-brand-red border border-brand-red group-hover:bg-brand-red group-hover:text-white rounded-lg transition"
+          <button 
+            type="button" 
+            onclick="event.stopPropagation(); app.addToCart('${card.id}', '${card.nombre.replace(/'/g, "\\'")}', 'raw', ${card.precios.raw}, '${card.imagenLocal}', '${card.imagenFallbackUrl}', 1)"
+            class="px-3 py-1.5 bg-brand-charcoal hover:bg-brand-red text-white text-xs font-bold rounded-lg transition flex items-center gap-1.5 touch-target"
+            aria-label="Añadir ${card.nombre} a la bolsa"
           >
-            Ver detalle
-          </span>
+            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+            <span>Añadir</span>
+          </button>
         </div>
-      </article>
+      </div>
     `).join('');
 
-    this.renderPagination(startIndex, pagedItems.length, totalItems);
-    lucide.createIcons();
+    this.renderPagination(totalItems, this.state.currentPage, totalPages);
+    if (window.lucide) window.lucide.createIcons();
   },
 
-  renderPagination(startIndex, pageCount, totalItems) {
-    const pagContainer = document.getElementById('catalog-pagination');
-    if (!pagContainer) return;
+  renderPagination(totalItems, currentPage, totalPages) {
+    const nav = document.getElementById('catalog-pagination');
+    if (!nav) return;
 
-    const totalPages = Math.ceil(totalItems / APP_CONFIG.ITEMS_PER_PAGE) || 1;
-    const startNum = totalItems > 0 ? startIndex + 1 : 0;
-    const endNum = startIndex + pageCount;
+    if (totalItems === 0) {
+      nav.innerHTML = '<span class="text-xs text-brand-muted">0 productos encontrados</span>';
+      return;
+    }
 
-    pagContainer.innerHTML = `
-      <span class="text-brand-muted text-xs sm:text-sm">
-        Mostrando ${startNum} - ${endNum} de ${totalItems} productos disponibles
-      </span>
-      <div class="flex items-center gap-1 font-bold text-xs sm:text-sm">
+    const start = (currentPage - 1) * APP_CONFIG.ITEMS_PER_PAGE + 1;
+    const end = Math.min(currentPage * APP_CONFIG.ITEMS_PER_PAGE, totalItems);
+
+    let buttonsHtml = '';
+    for (let i = 1; i <= totalPages; i++) {
+      if (i === currentPage) {
+        buttonsHtml += `
+          <button type="button" aria-current="page" class="w-8 h-8 rounded-lg bg-brand-red text-white font-bold text-xs">
+            ${i}
+          </button>
+        `;
+      } else {
+        buttonsHtml += `
+          <button type="button" onclick="app.setPage(${i})" class="w-8 h-8 rounded-lg border border-slate-300 text-brand-charcoal hover:bg-slate-100 font-bold text-xs transition">
+            ${i}
+          </button>
+        `;
+      }
+    }
+
+    nav.innerHTML = `
+      <div class="text-xs text-brand-muted font-medium">
+        Mostrando <span class="font-bold text-brand-charcoal">${start}-${end}</span> de <span class="font-bold text-brand-charcoal">${totalItems}</span> coleccionables
+      </div>
+      <div class="flex items-center gap-1.5">
         <button 
-          onclick="app.setPage(${this.state.currentPage - 1})" 
-          class="px-3 py-1.5 rounded border border-slate-200 ${this.state.currentPage <= 1 ? 'text-slate-300 cursor-not-allowed' : 'hover:bg-slate-100 text-brand-charcoal'}" 
-          ${this.state.currentPage <= 1 ? 'disabled' : ''}
-          aria-label="Página anterior"
+          type="button" 
+          onclick="app.setPage(${currentPage - 1})" 
+          ${currentPage === 1 ? 'disabled class="px-2.5 py-1.5 border border-slate-200 text-slate-300 text-xs font-bold rounded-lg cursor-not-allowed"' : 'class="px-2.5 py-1.5 border border-slate-300 text-brand-charcoal hover:bg-slate-100 text-xs font-bold rounded-lg transition"'}
         >
           Anterior
         </button>
-
-        ${Array.from({ length: totalPages }, (_, i) => i + 1).map(p => `
-          <button 
-            onclick="app.setPage(${p})" 
-            class="px-3 py-1.5 rounded ${p === this.state.currentPage ? 'bg-brand-charcoal text-white font-bold' : 'border border-slate-200 hover:bg-slate-100 text-brand-charcoal'}"
-            aria-label="Ir a página ${p}"
-            ${p === this.state.currentPage ? 'aria-current="page"' : ''}
-          >
-            ${p}
-          </button>
-        `).join('')}
-
+        <div class="flex items-center gap-1">
+          ${buttonsHtml}
+        </div>
         <button 
-          onclick="app.setPage(${this.state.currentPage + 1})" 
-          class="px-3 py-1.5 rounded border border-slate-200 ${this.state.currentPage >= totalPages ? 'text-slate-300 cursor-not-allowed' : 'hover:bg-slate-100 text-brand-charcoal'}" 
-          ${this.state.currentPage >= totalPages ? 'disabled' : ''}
-          aria-label="Página siguiente"
+          type="button" 
+          onclick="app.setPage(${currentPage + 1})" 
+          ${currentPage === totalPages ? 'disabled class="px-2.5 py-1.5 border border-slate-200 text-slate-300 text-xs font-bold rounded-lg cursor-not-allowed"' : 'class="px-2.5 py-1.5 border border-slate-300 text-brand-charcoal hover:bg-slate-100 text-xs font-bold rounded-lg transition"'}
         >
           Siguiente
         </button>
@@ -1137,29 +701,150 @@ const app = {
     `;
   },
 
-  // =========================================================================
-  // REQUERIMIENTO 7 & 3 & 3.2 & 3.4: BOLSA DE COMPRAS & CONFIRMACIÓN DE BORRADO
-  // =========================================================================
+  renderDynamicPDP() {
+    const card = this.state.currentPdpProduct;
+    if (!card) return;
+
+    const bSet = document.getElementById('pdp-breadcrumb-set');
+    const bName = document.getElementById('pdp-breadcrumb-name');
+    const mainImg = document.getElementById('pdp-main-image');
+    const certBadge = document.getElementById('pdp-cert-badge');
+    const title = document.getElementById('pdp-title');
+    const desc = document.getElementById('pdp-desc');
+    const rawPrice = document.getElementById('cond-price-raw');
+    const psa8Price = document.getElementById('cond-price-psa8');
+    const psa9Price = document.getElementById('cond-price-psa9');
+    const psa10Price = document.getElementById('cond-price-psa10');
+    const currentPrice = document.getElementById('pdp-price');
+    const trendPill = document.getElementById('market-trend-pill');
+    const qtyValue = document.getElementById('pdp-quantity-value');
+
+    if (bSet) bSet.innerText = card.set;
+    if (bName) bName.innerText = card.nombre;
+    if (mainImg) {
+      mainImg.src = card.imagenLocal;
+      mainImg.onerror = () => { mainImg.src = card.imagenFallbackUrl; };
+      mainImg.alt = card.nombre;
+    }
+    if (certBadge) certBadge.innerText = `PSA 10 GEM MT • ${card.id.toUpperCase()}`;
+    if (title) title.innerText = card.nombre;
+    if (desc) desc.innerText = card.descripcion;
+    if (rawPrice) rawPrice.innerText = `$${card.precios.raw.toFixed(2)}`;
+    if (psa8Price) psa8Price.innerText = `$${card.precios.psa8.toFixed(2)}`;
+    if (psa9Price) psa9Price.innerText = `$${card.precios.psa9.toFixed(2)}`;
+    if (psa10Price) psa10Price.innerText = `$${card.precios.psa10.toFixed(2)}`;
+
+    const selectedCond = this.state.pdpSelectedCondition;
+    const unitPrice = card.precios[selectedCond] || card.precios.psa10;
+    if (currentPrice) currentPrice.innerText = `$${unitPrice.toFixed(2)} USD`;
+    if (trendPill) trendPill.innerText = card.tendencia12m;
+    if (qtyValue) qtyValue.innerText = this.state.pdpQuantity;
+
+    this.selectPDPCondition(this.state.pdpSelectedCondition);
+  },
+
+  selectPDPCondition(cond) {
+    this.state.pdpSelectedCondition = cond;
+    const card = this.state.currentPdpProduct;
+    if (!card) return;
+
+    ['raw', 'psa8', 'psa9', 'psa10'].forEach(c => {
+      const btn = document.getElementById(`cond-${c}`);
+      if (!btn) return;
+      const title = btn.querySelector('.cond-title');
+      const price = btn.querySelector('.cond-price');
+      const check = btn.querySelector('.check-indicator');
+
+      if (c === cond) {
+        btn.className = 'cond-btn p-3 rounded-xl bg-brand-charcoal text-white text-left shadow transition';
+        if (title) {
+          title.className = 'cond-title text-xs font-bold text-white flex items-center justify-between';
+          if (!check) {
+            title.innerHTML = `<span>${title.innerText}</span><i data-lucide="check" class="check-indicator w-3.5 h-3.5 text-emerald-400"></i>`;
+          }
+        }
+        if (price) price.className = 'cond-price text-sm font-black text-amber-400';
+      } else {
+        btn.className = 'cond-btn p-3 rounded-xl border border-slate-200 text-left hover:border-slate-400 transition bg-white';
+        if (title) {
+          title.className = 'cond-title text-xs font-bold text-brand-charcoal';
+          const existingCheck = title.querySelector('.check-indicator');
+          if (existingCheck) existingCheck.remove();
+        }
+        if (price) price.className = 'cond-price text-sm font-black text-brand-muted';
+      }
+    });
+
+    const activePrice = card.precios[cond] || card.precios.psa10;
+    const priceDisplay = document.getElementById('pdp-price');
+    if (priceDisplay) priceDisplay.innerText = `$${activePrice.toFixed(2)} USD`;
+
+    if (window.lucide) window.lucide.createIcons();
+  },
+
+  updatePDPQuantity(delta) {
+    let next = this.state.pdpQuantity + delta;
+    if (next < 1) next = 1;
+    if (next > 10) {
+      this.showToast('Límite de 10 unidades por orden de custodia.', 'info');
+      next = 10;
+    }
+    this.state.pdpQuantity = next;
+    const display = document.getElementById('pdp-quantity-value');
+    if (display) display.innerText = next;
+  },
+
+  openPSAGuideModal() {
+    const modal = document.getElementById('psa-guide-modal');
+    if (modal) modal.classList.add('active');
+  },
+
+  closePSAGuideModal() {
+    const modal = document.getElementById('psa-guide-modal');
+    if (modal) modal.classList.remove('active');
+  },
+
+  addCurrentPDPToCart() {
+    const card = this.state.currentPdpProduct;
+    if (!card) return;
+    const cond = this.state.pdpSelectedCondition;
+    const price = card.precios[cond] || card.precios.psa10;
+    const qty = this.state.pdpQuantity;
+
+    this.addToCart(
+      card.id,
+      card.nombre,
+      cond,
+      price,
+      card.imagenLocal,
+      card.imagenFallbackUrl,
+      qty
+    );
+  },
+
   addToCart(id, name, condition, price, imageLocal, imageFallback, qty = 1) {
-    const units = Math.max(1, parseInt(qty, 10) || 1);
-    const existing = this.state.cart.find(c => c.id === id);
+    const itemKey = `${id}-${condition}`;
+    const existing = this.state.cart.find(item => item.id === itemKey);
+
     if (existing) {
-      existing.quantity += units;
+      existing.quantity += qty;
     } else {
       this.state.cart.push({
-        id,
-        name,
-        condition,
-        price,
-        quantity: units,
-        imageLocal: imageLocal || 'img/charizard-base.png',
-        imageFallback: imageFallback || 'https://images.pokemontcg.io/base1/4_hires.png'
+        id: itemKey,
+        productId: id,
+        name: name,
+        condition: condition.toUpperCase(),
+        price: price,
+        imageLocal: imageLocal,
+        imageFallback: imageFallback,
+        quantity: qty
       });
     }
 
+    this.saveCartToStorage();
     this.updateCartBadge();
     this.renderCart();
-    this.showToast(`+${units} "${name}" añadido a la bolsa`, 'success');
+    this.showToast(`+${qty} "${name}" añadido a la bolsa`, 'success');
   },
 
   updateQuantity(id, delta) {
@@ -1167,17 +852,16 @@ const app = {
     if (!item) return;
 
     if (item.quantity + delta <= 0) {
-      // 3.4 Confirmación antes de eliminar cuando baja de 1
       this.requestRemoveItem(id);
       return;
     }
 
     item.quantity += delta;
+    this.saveCartToStorage();
     this.updateCartBadge();
     this.renderCart();
   },
 
-  // 3.4 Confirmación de Eliminación en Carrito
   requestRemoveItem(id) {
     const item = this.state.cart.find(c => c.id === id);
     if (!item) return;
@@ -1190,7 +874,8 @@ const app = {
     }
     if (modal) {
       modal.classList.add('active');
-      lucide.createIcons();
+    } else {
+      this.confirmRemoveItem();
     }
   },
 
@@ -1202,22 +887,21 @@ const app = {
 
   confirmRemoveItem() {
     const id = this.state.pendingDeleteItemId;
-    this.state.pendingDeleteItemId = null;
-    const modal = document.getElementById('delete-confirm-modal');
-    if (modal) modal.classList.remove('active');
     if (id) {
       this.removeItem(id);
+      this.state.pendingDeleteItemId = null;
     }
+    const modal = document.getElementById('delete-confirm-modal');
+    if (modal) modal.classList.remove('active');
   },
 
   removeItem(id) {
-    const itemIndex = this.state.cart.findIndex(c => c.id === id);
-    if (itemIndex === -1) return;
+    const index = this.state.cart.findIndex(c => c.id === id);
+    if (index === -1) return;
 
-    const removed = this.state.cart[itemIndex];
-    this.state.lastDeletedItem = { item: removed, index: itemIndex };
-    this.state.cart.splice(itemIndex, 1);
-
+    const removed = this.state.cart.splice(index, 1)[0];
+    this.state.lastDeletedItem = { item: removed, index: index };
+    this.saveCartToStorage();
     this.updateCartBadge();
     this.renderCart();
 
@@ -1226,7 +910,7 @@ const app = {
     if (banner && text) {
       text.innerText = `Ítem "${removed.name}" eliminado de la bolsa.`;
       banner.classList.remove('hidden');
-      lucide.createIcons();
+      if (window.lucide) window.lucide.createIcons();
     }
   },
 
@@ -1239,6 +923,7 @@ const app = {
     const banner = document.getElementById('undo-banner');
     if (banner) banner.classList.add('hidden');
 
+    this.saveCartToStorage();
     this.updateCartBadge();
     this.renderCart();
     this.showToast(`Ítem "${item.name}" restaurado`, 'success');
@@ -1248,65 +933,73 @@ const app = {
     const container = document.getElementById('cart-items-container');
     if (!container) return;
 
-    // REQUERIMIENTO 7: Estado limpio cuando el carrito está vacío
     if (this.state.cart.length === 0) {
       container.innerHTML = `
         <div class="bg-white border border-brand-border rounded-xl p-10 text-center text-brand-muted">
           <i data-lucide="shopping-bag" class="w-14 h-14 mx-auto mb-3 text-slate-300"></i>
           <h3 class="font-extrabold text-base text-brand-charcoal">Tu bolsa de compras está vacía</h3>
           <p class="text-xs text-brand-muted mt-1 max-w-sm mx-auto">Añade cartas coleccionables, slabs PSA o booster packs para iniciar tu compra.</p>
-          <a href="#home" class="mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-brand-red hover:bg-brand-darkred text-white text-xs font-bold rounded-lg shadow-sm transition">
+          <a href="home.html" class="mt-5 inline-flex items-center gap-2 px-5 py-2.5 bg-brand-red hover:bg-brand-darkred text-white text-xs font-bold rounded-lg shadow-sm transition">
             <i data-lucide="compass" class="w-4 h-4"></i>
             <span>Explorar Catálogo</span>
           </a>
         </div>
       `;
-      this.calculateTotals(0);
-      lucide.createIcons();
+      this.updateCartSummary(0, 0, 0);
+      if (window.lucide) window.lucide.createIcons();
       return;
     }
 
     container.innerHTML = this.state.cart.map(item => `
-      <div class="bg-white border border-brand-border rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm">
-        <div class="flex items-center gap-3 flex-1">
-          <img 
-            src="${item.imageLocal}" 
-            alt="${item.name}" 
-            class="w-16 h-20 object-contain bg-slate-50 border border-slate-200 rounded-lg p-1" 
-            onerror="this.onerror=null; this.src='${item.imageFallback}'"
-          />
+      <div class="bg-white border border-brand-border rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+        <div class="flex items-center gap-4 w-full sm:w-auto">
+          <div class="w-16 h-20 bg-slate-50 rounded-lg border border-slate-200 p-2 flex items-center justify-center flex-shrink-0">
+            <img 
+              src="${item.imageLocal}" 
+              alt="${item.name}" 
+              class="max-h-full max-w-full object-contain"
+              onerror="this.onerror=null; this.src='${item.imageFallback}'"
+            />
+          </div>
           <div>
-            <h3 class="font-bold text-sm text-brand-charcoal">${item.name}</h3>
-            <span class="text-xs text-brand-muted block">${item.condition}</span>
-            <span class="text-xs font-bold text-brand-charcoal block sm:hidden mt-1">$${(item.price * item.quantity).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
+            <div class="inline-block px-2 py-0.5 text-[10px] font-black bg-amber-100 text-amber-900 rounded mb-1">
+              ${item.condition}
+            </div>
+            <h4 class="text-sm font-extrabold text-brand-charcoal">${item.name}</h4>
+            <p class="text-xs font-bold text-brand-red mt-0.5">$${item.price.toFixed(2)} USD c/u</p>
           </div>
         </div>
 
-        <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end">
+        <div class="flex items-center justify-between sm:justify-end gap-6 w-full sm:w-auto border-t sm:border-t-0 pt-3 sm:pt-0">
           <div class="flex items-center border border-slate-300 rounded-lg bg-slate-50">
             <button 
               type="button" 
-              onclick="app.updateQuantity('${item.id}', -1)" 
-              class="px-3 py-1 text-slate-600 hover:text-brand-charcoal font-black text-sm"
-              aria-label="Disminuir cantidad"
-            >−</button>
-            <span class="px-3 py-1 text-xs font-black text-brand-charcoal bg-white">${item.quantity}</span>
+              onclick="app.updateQuantity('${item.id}', -1)"
+              class="w-8 h-8 flex items-center justify-center font-bold text-slate-700 hover:bg-slate-200 rounded-l-lg transition"
+              aria-label="Restar una unidad"
+            >
+              −
+            </button>
+            <span class="px-3 text-xs font-black text-brand-charcoal">${item.quantity}</span>
             <button 
               type="button" 
-              onclick="app.updateQuantity('${item.id}', 1)" 
-              class="px-3 py-1 text-slate-600 hover:text-brand-charcoal font-black text-sm"
-              aria-label="Aumentar cantidad"
-            >+</button>
+              onclick="app.updateQuantity('${item.id}', 1)"
+              class="w-8 h-8 flex items-center justify-center font-bold text-slate-700 hover:bg-slate-200 rounded-r-lg transition"
+              aria-label="Añadir una unidad"
+            >
+              +
+            </button>
           </div>
 
-          <span class="font-black text-base text-brand-charcoal hidden sm:inline w-28 text-right">
-            $${(item.price * item.quantity).toLocaleString('en-US', { minimumFractionDigits: 2 })}
-          </span>
+          <div class="text-right min-w-[80px]">
+            <span class="text-xs text-brand-muted block">Total</span>
+            <span class="text-sm font-black text-brand-charcoal">$${(item.price * item.quantity).toFixed(2)}</span>
+          </div>
 
           <button 
             type="button" 
             onclick="app.requestRemoveItem('${item.id}')" 
-            class="p-2 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg transition"
+            class="p-2 text-slate-400 hover:text-brand-red rounded-lg hover:bg-red-50 transition"
             aria-label="Eliminar ${item.name} de la bolsa"
           >
             <i data-lucide="trash-2" class="w-4 h-4"></i>
@@ -1315,51 +1008,43 @@ const app = {
       </div>
     `).join('');
 
-    const subtotal = this.state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    this.calculateTotals(subtotal);
-    lucide.createIcons();
+    const subtotal = this.state.cart.reduce((sum, it) => sum + (it.price * it.quantity), 0);
+    const tax = subtotal * APP_CONFIG.TAX_RATE;
+    const shipping = this.state.shippingFee;
+    this.updateCartSummary(subtotal, tax, shipping);
+
+    if (window.lucide) window.lucide.createIcons();
   },
 
-  calculateTotals(subtotal) {
-    // REQUERIMIENTO 3: Envío a domicilio exactamente a $5.00 USD
-    const shipping = this.state.cart.length > 0 ? this.state.shippingFee : 0;
-    const tax = subtotal * APP_CONFIG.TAX_RATE; // 15% IVA
-    const total = subtotal + shipping + tax;
+  updateCartSummary(subtotal, tax, shipping) {
+    const sSub = document.getElementById('summary-subtotal');
+    const sTax = document.getElementById('summary-tax');
+    const sShip = document.getElementById('summary-shipping');
+    const sTot = document.getElementById('summary-total');
 
-    const setTxt = (id, val) => {
-      const el = document.getElementById(id);
-      if (el) el.innerText = `$${val.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
-    };
-
-    setTxt('summary-subtotal', subtotal);
-    setTxt('summary-shipping', shipping);
-    setTxt('summary-tax', tax);
-    setTxt('summary-total', total);
-
-    const checkoutPayBtn = document.getElementById('checkout-pay-button');
-    if (checkoutPayBtn) {
-      checkoutPayBtn.innerText = `Finalizar Compra ($${total.toLocaleString('en-US', { minimumFractionDigits: 2 })} USD)`;
-    }
+    if (sSub) sSub.innerText = `$${subtotal.toFixed(2)}`;
+    if (sTax) sTax.innerText = `$${tax.toFixed(2)}`;
+    if (sShip) sShip.innerText = shipping === 0 ? 'GRATIS' : `$${shipping.toFixed(2)}`;
+    if (sTot) sTot.innerText = `$${(subtotal + tax + (subtotal > 0 ? shipping : 0)).toFixed(2)} USD`;
   },
 
   updateCartBadge() {
+    const count = this.state.cart.reduce((acc, it) => acc + it.quantity, 0);
     const badge = document.getElementById('cart-badge');
-    if (badge) {
-      const count = this.state.cart.reduce((sum, item) => sum + item.quantity, 0);
-      badge.innerText = count;
+    if (badge) badge.innerText = count;
+
+    if (window.parent && window.parent.frames && window.parent.frames['menu']) {
+      try {
+        const topBadge = window.parent.frames['menu'].document.getElementById('cart-badge');
+        if (topBadge) topBadge.innerText = count;
+      } catch (e) {}
     }
   },
 
-  // =========================================================================
-  // REQUERIMIENTO 3 & 5 & 1: CHECKOUT SIMPLIFICADO & ENTREGA ADAPTATIVA
-  // =========================================================================
   handleDeliveryChange(method) {
     this.state.deliveryMethod = method;
     const courierContainer = document.getElementById('delivery-courier-container');
     const pickupContainer = document.getElementById('delivery-pickup-container');
-    const courierInput = document.getElementById('delivery-courier-input');
-    const pickupInput = document.getElementById('delivery-pickup-input');
-
     const cashContainer = document.getElementById('payment-cash-container');
     const cashInput = document.getElementById('payment-cash-input');
     const cashTitle = document.getElementById('payment-cash-title');
@@ -1367,99 +1052,83 @@ const app = {
 
     if (method === 'pickup') {
       this.state.shippingFee = APP_CONFIG.PICKUP_SHIPPING_FEE;
-      // REQUERIMIENTO 1: Sincronización reactiva de contenedores de entrega
-      if (courierContainer) {
-        courierContainer.className = 'delivery-option p-4 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 cursor-pointer flex items-start gap-3 transition';
-      }
-      if (pickupContainer) {
-        pickupContainer.className = 'delivery-option p-4 rounded-xl border-2 border-brand-red bg-red-50/40 cursor-pointer flex items-start gap-3 transition';
-      }
-      if (pickupInput) pickupInput.checked = true;
+      if (courierContainer) courierContainer.className = 'delivery-option p-4 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 cursor-pointer flex items-start gap-3 transition';
+      if (pickupContainer) pickupContainer.className = 'delivery-option p-4 rounded-xl border-2 border-brand-red bg-red-50/40 cursor-pointer flex items-start gap-3 transition';
 
       if (cashContainer) {
-        cashContainer.className = 'payment-option p-3.5 rounded-xl border border-slate-300 bg-white flex items-center justify-between cursor-pointer hover:bg-slate-50 transition';
+        cashContainer.className = 'payment-option p-3.5 rounded-xl border border-slate-200 bg-white cursor-pointer flex items-center justify-between hover:border-slate-400 transition';
       }
       if (cashInput) cashInput.disabled = false;
       if (cashTitle) cashTitle.className = 'text-sm font-bold text-brand-charcoal';
-      if (cashDesc) cashDesc.innerText = 'Paga en caja al retirar en el local central';
-      this.showToast('Entrega: Retiro en Sucursal Central ($0.00). Efectivo disponible.', 'info');
+      if (cashDesc) cashDesc.className = 'text-xs text-brand-muted block';
     } else {
-      // REQUERIMIENTO 3: Envío a domicilio exactamente a $5.00 USD
       this.state.shippingFee = APP_CONFIG.COURIER_SHIPPING_FEE;
-      // REQUERIMIENTO 1: Sincronización reactiva de contenedores de entrega
-      if (courierContainer) {
-        courierContainer.className = 'delivery-option p-4 rounded-xl border-2 border-brand-red bg-red-50/40 cursor-pointer flex items-start gap-3 transition';
-      }
-      if (pickupContainer) {
-        pickupContainer.className = 'delivery-option p-4 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 cursor-pointer flex items-start gap-3 transition';
-      }
-      if (courierInput) courierInput.checked = true;
+      if (courierContainer) courierContainer.className = 'delivery-option p-4 rounded-xl border-2 border-brand-red bg-red-50/40 cursor-pointer flex items-start gap-3 transition';
+      if (pickupContainer) pickupContainer.className = 'delivery-option p-4 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 cursor-pointer flex items-start gap-3 transition';
 
+      if (cashInput && cashInput.checked) {
+        const cardRadio = document.querySelector('input[name="payment-method"][value="card"]');
+        if (cardRadio) cardRadio.checked = true;
+      }
       if (cashContainer) {
         cashContainer.className = 'payment-option p-3.5 rounded-xl border border-slate-200 bg-slate-100 opacity-60 cursor-not-allowed flex items-center justify-between';
       }
-      if (cashInput) {
-        cashInput.disabled = true;
-        if (cashInput.checked) {
-          const cardRadio = document.querySelector('input[name="payment-method"][value="card"]');
-          if (cardRadio) cardRadio.checked = true;
-        }
-      }
+      if (cashInput) cashInput.disabled = true;
       if (cashTitle) cashTitle.className = 'text-sm font-bold text-slate-500';
-      if (cashDesc) cashDesc.innerText = 'Solo disponible para "Retiro en Local Físico"';
-      this.showToast('Entrega: Domicilio ($5.00). Efectivo bloqueado por seguridad.', 'info');
+      if (cashDesc) cashDesc.className = 'text-xs text-slate-400 block';
     }
 
-    const subtotal = this.state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    this.calculateTotals(subtotal);
+    const subtotal = this.state.cart.reduce((sum, it) => sum + (it.price * it.quantity), 0);
+    const tax = subtotal * APP_CONFIG.TAX_RATE;
+    this.updateCartSummary(subtotal, tax, this.state.shippingFee);
   },
 
-  // REQUERIMIENTO 5: Procesamiento de pago diferenciado (Tarjeta con modal vs Efectivo directo)
   startPaymentProcessing() {
     if (this.state.cart.length === 0) {
-      this.showToast('Tu bolsa de compras está vacía. Añade cartas antes de pagar.', 'error');
-      this.navigateTo('home');
+      this.showToast('Tu bolsa está vacía. Añade cartas antes de pagar.', 'error');
       return;
     }
 
     const nameInput = document.getElementById('guest-name');
     const idInput = document.getElementById('guest-id');
     const emailInput = document.getElementById('guest-email');
-    if (!nameInput || !nameInput.value.trim() || !emailInput || !emailInput.value.trim()) {
-      this.showToast('Por favor completa tus datos de facturación.', 'error');
+    const phoneInput = document.getElementById('guest-phone');
+
+    if (!nameInput || !nameInput.value.trim()) {
+      this.showToast('Por favor ingresa tu Nombre Completo.', 'error');
+      if (nameInput) nameInput.focus();
       return;
     }
-
-    // REQUERIMIENTO 5: Validación Algorítmica de Cédula Ecuatoriana (Módulo 10)
-    if (!idInput || !this.isValidEcuadorianId(idInput.value)) {
-      this.updateIdValidationUI(false);
+    if (!idInput || !this.validateEcuadorianId(idInput.value.trim())) {
+      this.showToast('Cédula o RUC ecuatoriano no válido.', 'error');
       if (idInput) idInput.focus();
-      this.showToast('Cédula ecuatoriana inválida (debe contener 10 dígitos válidos).', 'error');
+      return;
+    }
+    if (!emailInput || !emailInput.value.includes('@')) {
+      this.showToast('Por favor ingresa un correo electrónico válido.', 'error');
+      if (emailInput) emailInput.focus();
+      return;
+    }
+    if (!phoneInput || phoneInput.value.trim().length < 9) {
+      this.showToast('Por favor ingresa un teléfono celular válido.', 'error');
+      if (phoneInput) phoneInput.focus();
       return;
     }
 
-    const paymentMethodEl = document.querySelector('input[name="payment-method"]:checked');
-    const paymentMethod = paymentMethodEl ? paymentMethodEl.value : 'card';
+    const selectedPayment = document.querySelector('input[name="payment-method"]:checked');
+    const paymentVal = selectedPayment ? selectedPayment.value : 'card';
+    const orderId = `PKM-${Math.floor(100000 + Math.random() * 900000)}`;
 
-    // CASO A: Pago en Efectivo (Cash) -> DIRECTO SIN SPINNER NI MODAL
-    if (paymentMethod === 'cash') {
-      const randomNum = Math.floor(10000 + Math.random() * 90000);
-      const orderId = `#PKM-2026-${randomNum}`;
-      
-      const orderData = this.buildOrderData(orderId, nameInput.value, emailInput.value, 'Efectivo en Tienda');
-      this.saveLastOrder(orderData);
-
+    if (paymentVal === 'cash') {
+      const orderData = this.buildOrderData(orderId, nameInput.value.trim(), emailInput.value.trim(), 'Efectivo en Tienda al Retirar');
+      this.saveOrder(orderData);
       this.state.cart = [];
+      this.saveCartToStorage();
       this.updateCartBadge();
-      this.renderCart();
-
-      this.showToast('Orden reservada con éxito. Recuerda realizar el pago en caja al retirar en el local central.', 'success');
-      this.navigateTo('confirmation');
+      window.location.href = 'confirmation.html';
       return;
     }
 
-    // CASO B: Pago con Tarjeta -> MODAL CON ANIMACIÓN DE SPINNER Y 3D SECURE (2.5s)
-    // REQUERIMIENTO 3: Gobernado estrictamente por terminación en '0000'
     const cardNumInput = document.getElementById('card-number');
     const cardNum = (cardNumInput ? cardNumInput.value : '').replace(/\s+/g, '');
     const isSimulatedFailure = cardNum.endsWith('0000');
@@ -1469,12 +1138,12 @@ const app = {
     const progressBar = document.getElementById('payment-progress-bar');
 
     if (modal) modal.classList.add('active');
-    if (progressBar) progressBar.style.width = '20%';
+    if (progressBar) progressBar.style.width = '30%';
     if (modalText) modalText.innerText = 'Conectando con la pasarela bancaria segura...';
 
     setTimeout(() => {
       if (progressBar) progressBar.style.width = '70%';
-      if (modalText) modalText.innerText = 'Validando fondos y autenticación 3D Secure...';
+      if (modalText) modalText.innerText = 'Validando protocolo 3D Secure con entidad emisora...';
     }, 1200);
 
     setTimeout(() => {
@@ -1482,21 +1151,15 @@ const app = {
       if (modal) modal.classList.remove('active');
 
       if (isSimulatedFailure) {
-        this.showToast('Transacción rechazada por entidad bancaria (#DECLINED-SEC-054)', 'error');
-        this.navigateTo('error');
+        this.showToast('Transacción rechazada por el emisor bancario.', 'error');
+        window.location.href = 'checkout.html#error';
       } else {
-        const randomNum = Math.floor(10000 + Math.random() * 90000);
-        const orderId = `#PKM-2026-${randomNum}`;
-
-        const orderData = this.buildOrderData(orderId, nameInput.value, emailInput.value, 'Tarjeta de Crédito');
-        this.saveLastOrder(orderData);
-
+        const orderData = this.buildOrderData(orderId, nameInput.value.trim(), emailInput.value.trim(), 'Tarjeta de Crédito / Débito (3D Secure)');
+        this.saveOrder(orderData);
         this.state.cart = [];
+        this.saveCartToStorage();
         this.updateCartBadge();
-        this.renderCart();
-
-        this.showToast(`¡Pago exitoso! Orden confirmada: ${orderId}`, 'success');
-        this.navigateTo('confirmation');
+        window.location.href = 'confirmation.html';
       }
     }, 2500);
   },
@@ -1511,254 +1174,206 @@ const app = {
     const formattedDate = now.toLocaleDateString('es-EC', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
     return {
-      orderId,
+      orderId: orderId,
       date: formattedDate,
-      buyerName,
-      buyerEmail,
+      buyerName: buyerName,
+      buyerEmail: buyerEmail,
       paymentMethod: paymentLabel,
-      deliveryMethod: this.state.deliveryMethod === 'courier' ? 'Envío a Domicilio ($5.00)' : 'Retiro en Local Central ($0.00)',
+      deliveryMethod: this.state.deliveryMethod === 'pickup' ? 'Retiro en Local Central Quito' : 'Envío Blindado a Domicilio',
       items: [...this.state.cart],
-      subtotal,
-      tax,
-      shipping,
-      total
+      subtotal: subtotal,
+      tax: tax,
+      shipping: shipping,
+      total: total,
+      statusStage: 2
     };
   },
 
-  // =========================================================================
-  // REQUERIMIENTO 6: HISTORIAL DE TRACKING DINÁMICO (ÚLTIMA ORDEN REAL)
-  // =========================================================================
-  saveLastOrder(orderData) {
+  saveOrder(orderData) {
     try {
       localStorage.setItem('gstcg_last_order', JSON.stringify(orderData));
-    } catch (e) {
-      console.warn('Error al guardar orden en localStorage:', e);
-    }
-    this.renderDynamicConfirmation(orderData);
+    } catch (e) {}
   },
 
-  renderDynamicConfirmation(order) {
-    const orderBadge = document.getElementById('confirm-order-id');
-    if (orderBadge) orderBadge.innerText = `Número de Orden: ${order.orderId}`;
-
-    const emailSpan = document.getElementById('confirm-email-recipient');
-    if (emailSpan) emailSpan.innerText = order.buyerEmail;
-
+  renderConfirmation() {
+    const container = document.getElementById('confirm-breakdown-container');
+    const orderIdEl = document.getElementById('confirm-order-id');
+    const emailEl = document.getElementById('confirm-email-recipient');
     const cashNotice = document.getElementById('confirm-cash-notice');
-    if (cashNotice) {
-      if (order.paymentMethod.includes('Efectivo')) {
-        cashNotice.classList.remove('hidden');
-      } else {
-        cashNotice.classList.add('hidden');
-      }
-    }
+    if (!container && !orderIdEl) return;
 
-    const breakdownContainer = document.getElementById('confirm-breakdown-container');
-    if (breakdownContainer) {
-      breakdownContainer.innerHTML = `
-        <h2 class="font-black text-brand-charcoal text-sm uppercase tracking-wider mb-2">Desglose de la Transacción</h2>
-        ${order.items.map(item => `
-          <div class="flex justify-between text-brand-muted">
-            <span>${item.quantity}x ${item.name} (${item.condition})</span>
-            <span class="font-bold text-brand-charcoal">$${(item.price * item.quantity).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
+    try {
+      const saved = localStorage.getItem('gstcg_last_order');
+      if (!saved) return;
+      const order = JSON.parse(saved);
+
+      if (orderIdEl) orderIdEl.innerText = `Número de Orden: #${order.orderId}`;
+      if (emailEl) emailEl.innerText = order.buyerEmail;
+
+      if (cashNotice) {
+        if (order.paymentMethod.includes('Efectivo')) {
+          cashNotice.classList.remove('hidden');
+        } else {
+          cashNotice.classList.add('hidden');
+        }
+      }
+
+      if (container) {
+        container.innerHTML = `
+          <div class="border-b border-slate-200 pb-3">
+            <h3 class="font-extrabold text-brand-charcoal">Resumen de Compra Certificada</h3>
+            <p class="text-xs text-brand-muted mt-0.5">Método de pago: ${order.paymentMethod} • ${order.deliveryMethod}</p>
           </div>
-        `).join('')}
-        <div class="flex justify-between text-brand-muted border-t border-slate-200 pt-2">
-          <span>${order.deliveryMethod}:</span>
-          <span class="font-bold text-brand-charcoal">$${order.shipping.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
-        </div>
-        <div class="flex justify-between text-brand-muted">
-          <span>Impuestos (IVA 15%):</span>
-          <span class="font-bold text-brand-charcoal">$${order.tax.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
-        </div>
-        <div class="flex justify-between font-black text-base text-brand-charcoal border-t border-slate-300 pt-2">
-          <span>Total (${order.paymentMethod}):</span>
-          <span class="text-brand-red">$${order.total.toLocaleString('en-US', { minimumFractionDigits: 2 })} USD</span>
-        </div>
-      `;
-    }
+          <div class="space-y-2 py-2">
+            ${order.items.map(it => `
+              <div class="flex justify-between items-center text-xs">
+                <span>${it.quantity}x ${it.name} (${it.condition})</span>
+                <span class="font-bold text-brand-charcoal">$${(it.price * it.quantity).toFixed(2)}</span>
+              </div>
+            `).join('')}
+          </div>
+          <div class="border-t border-slate-200 pt-3 space-y-1 text-xs">
+            <div class="flex justify-between text-brand-muted">
+              <span>Subtotal:</span>
+              <span class="font-bold text-brand-charcoal">$${order.subtotal.toFixed(2)}</span>
+            </div>
+            <div class="flex justify-between text-brand-muted">
+              <span>Envío:</span>
+              <span class="font-bold text-brand-charcoal">${order.shipping === 0 ? 'GRATIS' : `$${order.shipping.toFixed(2)}`}</span>
+            </div>
+            <div class="flex justify-between text-brand-muted">
+              <span>IVA (15%):</span>
+              <span class="font-bold text-brand-charcoal">$${order.tax.toFixed(2)}</span>
+            </div>
+            <div class="flex justify-between text-base font-extrabold text-brand-charcoal pt-2 border-t border-slate-200">
+              <span>Total Pagado:</span>
+              <span class="text-brand-red">$${order.total.toFixed(2)} USD</span>
+            </div>
+          </div>
+        `;
+      }
+    } catch (e) {}
   },
 
   renderDynamicTracking() {
-    let order = null;
-    try {
-      const saved = localStorage.getItem('gstcg_last_order');
-      if (saved) order = JSON.parse(saved);
-    } catch (e) {}
-
+    const emptyBox = document.getElementById('tracking-empty-state');
+    const activeBox = document.getElementById('tracking-active-order-box');
     const orderIdEl = document.getElementById('tracking-order-id');
     const orderDateEl = document.getElementById('tracking-order-date');
-    const itemsContainer = document.getElementById('tracking-items-container');
-    const emptyState = document.getElementById('tracking-empty-state');
-    const activeOrderBox = document.getElementById('tracking-active-order-box');
+    const itemsCont = document.getElementById('tracking-items-container');
+    if (!emptyBox && !activeBox) return;
 
-    if (!order) {
-      if (emptyState) emptyState.classList.remove('hidden');
-      if (activeOrderBox) activeOrderBox.classList.add('hidden');
-      return;
-    }
-
-    if (emptyState) emptyState.classList.add('hidden');
-    if (activeOrderBox) activeOrderBox.classList.remove('hidden');
-
-    if (orderIdEl) orderIdEl.innerText = `ORDEN ${order.orderId}`;
-    if (orderDateEl) orderDateEl.innerText = `Fecha: ${order.date} • Titular: ${order.buyerName} • Método: ${order.deliveryMethod}`;
-
-    if (itemsContainer) {
-      itemsContainer.innerHTML = order.items.map(item => `
-        <div class="flex items-center justify-between p-3.5 bg-brand-surface border border-brand-border rounded-xl">
-          <div class="flex items-center gap-3">
-            <img 
-              src="${item.imageLocal}" 
-              alt="${item.name}" 
-              class="w-12 h-16 object-contain bg-white rounded border border-slate-200" 
-              onerror="this.onerror=null; this.src='${item.imageFallback}'"
-            />
-            <div>
-              <h3 class="text-sm font-bold text-brand-charcoal">${item.name}</h3>
-              <span class="text-xs text-brand-muted">${item.condition} • Cantidad: ${item.quantity}</span>
-            </div>
-          </div>
-          <span class="text-sm font-black text-brand-charcoal">$${(item.price * item.quantity).toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
-        </div>
-      `).join('');
-    }
-    lucide.createIcons();
-  },
-
-  // =========================================================================
-  // REQUERIMIENTO 1: LIMPIEZA DE FORMULARIOS Y RESET DE PESTAÑAS
-  // =========================================================================
-  switchAuthTab(tab) {
-    const tabLogin = document.getElementById('auth-tab-login');
-    const tabRegister = document.getElementById('auth-tab-register');
-    const sectionLogin = document.getElementById('auth-section-login');
-    const sectionRegister = document.getElementById('auth-section-register');
-
-    // Reset fields on tab change
-    this.resetAuthFormInputs();
-
-    if (tab === 'login') {
-      if (tabLogin) tabLogin.className = 'flex-1 py-2.5 text-xs font-bold border-b-2 border-brand-red text-brand-charcoal';
-      if (tabRegister) tabRegister.className = 'flex-1 py-2.5 text-xs font-bold border-b-2 border-transparent text-brand-muted hover:text-brand-charcoal';
-      if (sectionLogin) sectionLogin.classList.remove('hidden');
-      if (sectionRegister) sectionRegister.classList.add('hidden');
-    } else {
-      if (tabLogin) tabLogin.className = 'flex-1 py-2.5 text-xs font-bold border-b-2 border-transparent text-brand-muted hover:text-brand-charcoal';
-      if (tabRegister) tabRegister.className = 'flex-1 py-2.5 text-xs font-bold border-b-2 border-brand-red text-brand-charcoal';
-      if (sectionLogin) sectionLogin.classList.add('hidden');
-      if (sectionRegister) sectionRegister.classList.remove('hidden');
-    }
-  },
-
-  resetAuthFormInputs() {
-    ['auth-email', 'auth-password', 'reg-name', 'reg-id', 'reg-email', 'reg-pass', 'reg-pass-confirm'].forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.value = '';
-    });
-    const checkRemember = document.getElementById('auth-remember');
-    if (checkRemember) checkRemember.checked = false;
-    const checkTerms = document.getElementById('reg-terms');
-    if (checkTerms) checkTerms.checked = false;
-  },
-
-  initSessionFromStorage() {
     try {
-      const savedUserJson = localStorage.getItem('gstcg_user');
-      if (savedUserJson) {
-        this.state.currentUser = JSON.parse(savedUserJson);
+      const saved = localStorage.getItem('gstcg_last_order');
+      if (!saved) {
+        if (emptyBox) emptyBox.classList.remove('hidden');
+        if (activeBox) activeBox.classList.add('hidden');
+        return;
+      }
+
+      const order = JSON.parse(saved);
+      if (emptyBox) emptyBox.classList.add('hidden');
+      if (activeBox) activeBox.classList.remove('hidden');
+
+      if (orderIdEl) orderIdEl.innerText = `ORDEN #${order.orderId}`;
+      if (orderDateEl) orderDateEl.innerText = `Fecha de compra: ${order.date} • ${order.deliveryMethod}`;
+
+      if (itemsCont) {
+        itemsCont.innerHTML = order.items.map(it => `
+          <div class="flex items-center justify-between p-3 rounded-xl border border-slate-200 bg-slate-50">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-14 bg-white rounded border border-slate-200 p-1 flex items-center justify-center">
+                <img src="${it.imageLocal}" alt="${it.name}" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='${it.imageFallback}'" />
+              </div>
+              <div>
+                <span class="text-[10px] font-bold text-brand-muted uppercase">${it.condition}</span>
+                <h4 class="text-xs sm:text-sm font-bold text-brand-charcoal">${it.name}</h4>
+                <span class="text-xs text-brand-muted">Cantidad: ${it.quantity}</span>
+              </div>
+            </div>
+            <span class="text-xs sm:text-sm font-black text-brand-charcoal">$${(it.price * it.quantity).toFixed(2)}</span>
+          </div>
+        `).join('');
       }
     } catch (e) {
-      console.warn('No se pudo acceder a localStorage:', e);
+      if (emptyBox) emptyBox.classList.remove('hidden');
+      if (activeBox) activeBox.classList.add('hidden');
     }
-    this.updateUserNavbarUI();
   },
 
-  updateUserNavbarUI() {
-    const userLabel = document.getElementById('nav-user-label');
-    const userBtn = document.getElementById('btn-nav-account');
-    const logoutBtn = document.getElementById('btn-nav-logout');
+  switchAuthTab(tab) {
+    const btnLogin = document.getElementById('auth-tab-login');
+    const btnReg = document.getElementById('auth-tab-register');
+    const secLogin = document.getElementById('auth-section-login');
+    const secReg = document.getElementById('auth-section-register');
 
-    if (this.state.currentUser) {
-      const shortName = this.state.currentUser.name.split(' ')[0];
-      if (userLabel) userLabel.innerText = `${shortName}`;
-      if (logoutBtn) logoutBtn.classList.remove('hidden');
-      if (userBtn) userBtn.classList.add('border-brand-red', 'bg-red-50');
+    if (tab === 'login') {
+      if (btnLogin) btnLogin.className = 'flex-1 py-2.5 text-xs font-bold border-b-2 border-brand-red text-brand-charcoal';
+      if (btnReg) btnReg.className = 'flex-1 py-2.5 text-xs font-bold border-b-2 border-transparent text-brand-muted hover:text-brand-charcoal';
+      if (secLogin) secLogin.classList.remove('hidden');
+      if (secReg) secReg.classList.add('hidden');
     } else {
-      if (userLabel) userLabel.innerText = 'Mi Cuenta';
-      if (logoutBtn) logoutBtn.classList.add('hidden');
-      if (userBtn) userBtn.classList.remove('border-brand-red', 'bg-red-50');
-    }
-  },
-
-  syncCheckoutWithSession() {
-    const nameInput = document.getElementById('guest-name');
-    const idInput = document.getElementById('guest-id');
-    const emailInput = document.getElementById('guest-email');
-    const phoneInput = document.getElementById('guest-phone');
-
-    if (this.state.currentUser) {
-      if (nameInput) nameInput.value = this.state.currentUser.name || '';
-      if (idInput) idInput.value = this.state.currentUser.idCard || '';
-      if (emailInput) emailInput.value = this.state.currentUser.email || '';
-      if (phoneInput) phoneInput.value = this.state.currentUser.phone || '';
+      if (btnReg) btnReg.className = 'flex-1 py-2.5 text-xs font-bold border-b-2 border-brand-red text-brand-charcoal';
+      if (btnLogin) btnLogin.className = 'flex-1 py-2.5 text-xs font-bold border-b-2 border-transparent text-brand-muted hover:text-brand-charcoal';
+      if (secReg) secReg.classList.remove('hidden');
+      if (secLogin) secLogin.classList.add('hidden');
     }
   },
 
   handleLogin(email, password) {
     if (!email || !password) {
-      this.showToast('Por favor completa correo y contraseña.', 'error');
+      this.showToast('Por favor completa las credenciales.', 'error');
       return;
     }
-
-    let existingUsers = [];
-    try {
-      existingUsers = JSON.parse(localStorage.getItem('gstcg_users') || '[]');
-    } catch (e) {}
-
-    const matched = existingUsers.find(u => u.email.toLowerCase() === email.toLowerCase());
-    const userObj = matched || {
-      name: email.split('@')[0].toUpperCase(),
+    const userObj = {
+      nombre: email.split('@')[0],
       email: email,
-      idCard: '1720000000',
-      phone: '+593 99 000 0000'
+      cedula: '1710000000',
+      telefono: '0991234567'
     };
-
+    try {
+      localStorage.setItem('gstcg_user', JSON.stringify(userObj));
+    } catch (e) {}
     this.state.currentUser = userObj;
-    localStorage.setItem('gstcg_user', JSON.stringify(userObj));
-    this.resetAuthFormInputs();
-    this.updateUserNavbarUI();
-    this.syncCheckoutWithSession();
-    this.showToast(`¡Bienvenido de vuelta, ${userObj.name}!`, 'success');
-    this.navigateTo('home');
+    this.updateNavUserDisplay();
+    this.showToast(`Bienvenido a tu bóveda, ${userObj.nombre}`, 'success');
+
+    if (window.parent && window.parent.frames && window.parent.frames['menu']) {
+      try {
+        window.parent.frames['menu'].syncNavState();
+      } catch (e) {}
+    }
+    window.location.href = 'home.html';
   },
 
-  handleRegister(name, idCard, email, password) {
-    if (!name || !email || !password) {
-      this.showToast('Por favor completa todos los campos obligatorios.', 'error');
+  handleRegister(name, id, email, password) {
+    if (!name || !id || !email || !password) {
+      this.showToast('Por favor completa todos los campos del registro.', 'error');
       return;
     }
-
+    if (!this.validateEcuadorianId(id)) {
+      this.showToast('Cédula o RUC ecuatoriano no válido.', 'error');
+      return;
+    }
     const newUser = {
-      name: name.trim(),
-      idCard: (idCard || '').trim(),
-      email: email.trim(),
-      phone: '+593 99 123 4567'
+      nombre: name,
+      cedula: id,
+      email: email,
+      telefono: '0991234567'
     };
-
     try {
-      let existingUsers = JSON.parse(localStorage.getItem('gstcg_users') || '[]');
-      existingUsers.push(newUser);
-      localStorage.setItem('gstcg_users', JSON.stringify(existingUsers));
       localStorage.setItem('gstcg_user', JSON.stringify(newUser));
     } catch (e) {}
-
     this.state.currentUser = newUser;
-    this.resetAuthFormInputs();
-    this.updateUserNavbarUI();
-    this.syncCheckoutWithSession();
-    this.showToast(`Cuenta creada exitosamente. ¡Bienvenido, ${newUser.name}!`, 'success');
-    this.navigateTo('home');
+    this.updateNavUserDisplay();
+    this.showToast(`Cuenta creada exitosamente. ¡Bienvenido, ${name}!`, 'success');
+
+    if (window.parent && window.parent.frames && window.parent.frames['menu']) {
+      try {
+        window.parent.frames['menu'].syncNavState();
+      } catch (e) {}
+    }
+    window.location.href = 'home.html';
   },
 
   logoutUser() {
@@ -1766,170 +1381,213 @@ const app = {
     try {
       localStorage.removeItem('gstcg_user');
     } catch (e) {}
-    this.updateUserNavbarUI();
-    const nameInput = document.getElementById('guest-name'); if (nameInput) nameInput.value = '';
-    const idInput = document.getElementById('guest-id'); if (idInput) idInput.value = '';
-    const emailInput = document.getElementById('guest-email'); if (emailInput) emailInput.value = '';
-    const phoneInput = document.getElementById('guest-phone'); if (phoneInput) phoneInput.value = '';
+    this.updateNavUserDisplay();
     this.showToast('Sesión cerrada correctamente.', 'info');
-  },
-
-  switchToCashPickup() {
-    this.handleDeliveryChange('pickup');
-    const pickupRadio = document.querySelector('input[name="delivery-method"][value="pickup"]');
-    if (pickupRadio) pickupRadio.checked = true;
-    const cashRadio = document.getElementById('payment-cash-input');
-    if (cashRadio) cashRadio.checked = true;
-
-    this.navigateTo('checkout');
-    this.showToast('Método actualizado a Retiro en Tienda y Pago en Efectivo ($0.00 envío).', 'success');
-  },
-
-  // =========================================================================
-  // REQUERIMIENTO 4: FORMATO DE TELÉFONO ECUATORIANO (+593)
-  // =========================================================================
-  setupPhoneInput() {
-    const phoneInput = document.getElementById('guest-phone');
-    if (phoneInput) {
-      phoneInput.addEventListener('input', (e) => {
-        // Bloquear caracteres no numéricos y limitar a 10 dígitos
-        e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
-      });
+    if (window.parent && window.parent.frames && window.parent.frames['menu']) {
+      try {
+        window.parent.frames['menu'].syncNavState();
+      } catch (e) {}
     }
+    window.location.href = 'home.html';
   },
 
-  // =========================================================================
-  // REQUERIMIENTO 5: VALIDACIÓN ALGORÍTMICA DE CÉDULA ECUATORIANA (MÓDULO 10)
-  // =========================================================================
-  isValidEcuadorianId(cedula) {
-    if (!cedula || typeof cedula !== 'string') return false;
-    const clean = cedula.trim().replace(/\D/g, '');
-    if (clean.length !== 10) return false;
+  validateEcuadorianId(id) {
+    id = (id || '').trim();
+    if (id.length === 13 && id.endsWith('001')) {
+      id = id.substring(0, 10);
+    }
+    if (!/^\d{10}$/.test(id)) return false;
 
-    // 1. Código de provincia: 01 a 24
-    const provincia = parseInt(clean.substring(0, 2), 10);
-    if (provincia < 1 || provincia > 24) return false;
+    const province = parseInt(id.substring(0, 2), 10);
+    if ((province < 1 || province > 24) && province !== 30) return false;
 
-    // 2. Tercer dígito menor a 6 (personas naturales)
-    const tercerDigito = parseInt(clean.charAt(2), 10);
-    if (tercerDigito >= 6) return false;
+    const thirdDigit = parseInt(id.charAt(2), 10);
+    if (thirdDigit >= 6) return false;
 
-    // 3. Algoritmo Módulo 10
-    const coeficientes = [2, 1, 2, 1, 2, 1, 2, 1, 2];
-    let suma = 0;
+    const coefficients = [2, 1, 2, 1, 2, 1, 2, 1, 2];
+    const verifier = parseInt(id.charAt(9), 10);
+    let sum = 0;
+
     for (let i = 0; i < 9; i++) {
-      let valor = parseInt(clean.charAt(i), 10) * coeficientes[i];
-      if (valor >= 10) valor -= 9;
-      suma += valor;
+      let val = parseInt(id.charAt(i), 10) * coefficients[i];
+      if (val >= 10) val -= 9;
+      sum += val;
     }
 
-    const residuo = suma % 10;
-    const digitoVerificador = residuo === 0 ? 0 : 10 - residuo;
-    const digitoValidar = parseInt(clean.charAt(9), 10);
-
-    return digitoVerificador === digitoValidar;
+    const mod = sum % 10;
+    const computedVerifier = mod === 0 ? 0 : 10 - mod;
+    return computedVerifier === verifier;
   },
 
   setupIdValidation() {
     const idInput = document.getElementById('guest-id');
+    const err = document.getElementById('guest-id-error');
     if (!idInput) return;
-
-    const validateAndRender = () => {
-      const val = idInput.value.trim();
-      if (val.length === 0) {
-        this.clearIdValidationUI();
-        return;
-      }
-      if (val.length === 10) {
-        const isValid = this.isValidEcuadorianId(val);
-        this.updateIdValidationUI(isValid);
-      } else {
-        this.updateIdValidationUI(false);
-      }
-    };
 
     idInput.addEventListener('input', (e) => {
       e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
-      validateAndRender();
+      if (e.target.value.length === 10) {
+        const valid = this.validateEcuadorianId(e.target.value);
+        if (err) {
+          if (valid) {
+            err.classList.add('hidden');
+            idInput.classList.remove('border-red-500');
+            idInput.classList.add('border-emerald-500');
+          } else {
+            err.classList.remove('hidden');
+            idInput.classList.add('border-red-500');
+            idInput.classList.remove('border-emerald-500');
+          }
+        }
+      } else {
+        if (err) err.classList.add('hidden');
+        idInput.classList.remove('border-red-500', 'border-emerald-500');
+      }
+    });
+  },
+
+  setupPhoneInput() {
+    const phone = document.getElementById('guest-phone');
+    if (!phone) return;
+    phone.addEventListener('input', (e) => {
+      let val = e.target.value.replace(/\D/g, '');
+      if (val.startsWith('0')) val = val.substring(1);
+      e.target.value = val.slice(0, 9);
+    });
+  },
+
+  setupSearchSpotlight() {
+    const input = document.getElementById('global-search');
+    const dropdown = document.getElementById('search-live-dropdown');
+    if (!input || !dropdown) return;
+
+    input.addEventListener('input', (e) => {
+      const q = e.target.value.trim().toLowerCase();
+      if (!q) {
+        dropdown.classList.add('hidden');
+        return;
+      }
+      const matches = PRODUCTS.filter(p => 
+        p.nombre.toLowerCase().includes(q) || 
+        p.set.toLowerCase().includes(q)
+      ).slice(0, 4);
+
+      if (matches.length === 0) {
+        dropdown.innerHTML = '<div class="p-4 text-xs text-brand-muted text-center">No se encontraron piezas.</div>';
+      } else {
+        dropdown.innerHTML = matches.map(m => `
+          <div 
+            onclick="app.openProductPDP('${m.id}')"
+            class="p-3 hover:bg-slate-50 cursor-pointer flex items-center justify-between border-b last:border-0"
+          >
+            <div class="flex items-center gap-3">
+              <img src="${m.imagenLocal}" class="w-8 h-10 object-contain" onerror="this.src='${m.imagenFallbackUrl}'" />
+              <div>
+                <p class="text-xs font-bold text-brand-charcoal">${m.nombre}</p>
+                <p class="text-[10px] text-brand-muted">${m.set}</p>
+              </div>
+            </div>
+            <span class="text-xs font-black text-brand-charcoal">$${m.precios.psa10.toFixed(2)}</span>
+          </div>
+        `).join('');
+      }
+      dropdown.classList.remove('hidden');
     });
 
-    idInput.addEventListener('blur', () => {
-      validateAndRender();
+    document.addEventListener('click', (e) => {
+      if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.add('hidden');
+      }
     });
+  },
 
-    // Validar también el campo de registro si existe
-    const regId = document.getElementById('reg-id');
-    if (regId) {
-      regId.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
+  setupPDPChartInteractions() {
+    const chart = document.getElementById('pdp-interactive-chart');
+    const tooltip = document.getElementById('chart-hover-tooltip');
+    const guideLine = document.getElementById('chart-guide-line');
+    const hoverDot = document.getElementById('chart-hover-dot');
+    if (!chart || !tooltip) return;
+
+    const dataPoints = [
+      { x: 30, y: 85, month: 'Oct 2025', price: 15200 },
+      { x: 110, y: 75, month: 'Dic 2025', price: 16100 },
+      { x: 190, y: 80, month: 'Feb 2026', price: 15800 },
+      { x: 270, y: 50, month: 'May 2026', price: 17300 },
+      { x: 370, y: 25, month: 'Hoy (Oct 2026)', price: 18500 }
+    ];
+
+    chart.addEventListener('mousemove', (e) => {
+      const rect = chart.getBoundingClientRect();
+      const clientX = e.clientX - rect.left;
+      const svgX = (clientX / rect.width) * 400;
+
+      let closest = dataPoints[0];
+      let minDiff = Infinity;
+      dataPoints.forEach(pt => {
+        const diff = Math.abs(pt.x - svgX);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closest = pt;
+        }
       });
-    }
+
+      if (guideLine) {
+        guideLine.setAttribute('x1', closest.x);
+        guideLine.setAttribute('x2', closest.x);
+        guideLine.style.display = 'block';
+      }
+      if (hoverDot) {
+        hoverDot.setAttribute('cx', closest.x);
+        hoverDot.setAttribute('cy', closest.y);
+        hoverDot.style.display = 'block';
+      }
+
+      const pixelX = (closest.x / 400) * rect.width;
+      const pixelY = (closest.y / 130) * rect.height;
+
+      tooltip.innerHTML = `
+        <div class="bg-brand-charcoal text-white text-[11px] py-1 px-2.5 rounded-lg shadow-xl border border-slate-700 whitespace-nowrap">
+          <div class="font-extrabold text-amber-400">$${closest.price.toLocaleString('en-US', { minimumFractionDigits: 2 })} USD</div>
+          <div class="text-[10px] text-slate-300">${closest.month}</div>
+        </div>
+      `;
+      tooltip.style.left = `${pixelX}px`;
+      tooltip.style.top = `${pixelY - 10}px`;
+      tooltip.style.opacity = '1';
+    });
+
+    chart.addEventListener('mouseleave', () => {
+      if (guideLine) guideLine.style.display = 'none';
+      if (hoverDot) hoverDot.style.display = 'none';
+      tooltip.style.opacity = '0';
+    });
   },
 
-  updateIdValidationUI(isValid) {
-    const idInput = document.getElementById('guest-id');
-    const errorMsg = document.getElementById('guest-id-error');
-    if (!idInput || !errorMsg) return;
-
-    if (isValid) {
-      idInput.classList.remove('border-red-500', 'bg-red-50/20');
-      idInput.classList.add('border-emerald-500');
-      errorMsg.classList.add('hidden');
-    } else {
-      idInput.classList.remove('border-emerald-500');
-      idInput.classList.add('border-red-500', 'bg-red-50/20');
-      errorMsg.classList.remove('hidden');
-    }
-  },
-
-  clearIdValidationUI() {
-    const idInput = document.getElementById('guest-id');
-    const errorMsg = document.getElementById('guest-id-error');
-    if (!idInput || !errorMsg) return;
-    idInput.classList.remove('border-red-500', 'bg-red-50/20', 'border-emerald-500');
-    errorMsg.classList.add('hidden');
-  },
-
-  // Accessible Toast Feedback Provider
   showToast(message, type = 'info') {
     const container = document.getElementById('toast-container');
     if (!container) return;
 
+    const colors = {
+      success: 'bg-emerald-600 text-white',
+      error: 'bg-brand-red text-white',
+      info: 'bg-brand-charcoal text-white'
+    };
     const toast = document.createElement('div');
-    toast.className = 'pointer-events-auto bg-brand-charcoal text-white text-xs font-semibold px-4 py-3 rounded-xl shadow-xl border-l-4 flex items-center gap-2.5 transition-all transform translate-y-2 opacity-0';
-
-    let icon = 'info';
-    if (type === 'success') {
-      toast.classList.add('border-emerald-500');
-      icon = 'check-circle';
-    } else if (type === 'error') {
-      toast.classList.add('border-brand-red');
-      icon = 'alert-circle';
-    } else {
-      toast.classList.add('border-blue-500');
-    }
-
+    toast.className = `${colors[type] || colors.info} px-4 py-3 rounded-xl shadow-xl text-xs font-bold flex items-center justify-between gap-3 pointer-events-auto transition-all transform translate-y-2`;
     toast.innerHTML = `
-      <i data-lucide="${icon}" class="w-4 h-4 flex-shrink-0"></i>
       <span>${message}</span>
+      <button type="button" onclick="this.parentElement.remove()" class="text-white/80 hover:text-white">&times;</button>
     `;
-
     container.appendChild(toast);
-    lucide.createIcons();
-
-    requestAnimationFrame(() => {
-      toast.classList.remove('translate-y-2', 'opacity-0');
-      toast.classList.add('translate-y-0', 'opacity-100');
-    });
-
     setTimeout(() => {
-      toast.classList.add('opacity-0', 'translate-y-2');
-      setTimeout(() => toast.remove(), 250);
+      toast.classList.remove('translate-y-2');
+    }, 10);
+    setTimeout(() => {
+      toast.remove();
     }, 4000);
   }
 };
 
-// Bootstrap application on DOM ready
 document.addEventListener('DOMContentLoaded', () => {
   app.init();
 });

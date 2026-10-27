@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graded &amp; Sealed TCG - Encabezado</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DC2626',
+              darkred: '#B91C1C',
+              lightred: '#FEF2F2',
+              gold: '#F59E0B',
+              lightgold: '#FEF3C7',
+              darkgold: '#B45309',
+              charcoal: '#0F172A',
+              slate: '#1E293B',
+              muted: '#64748B',
+              border: '#E2E8F0',
+              surface: '#F8FAFC'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-white text-brand-charcoal font-sans antialiased m-0 p-0 overflow-hidden">
+  <header class="bg-white border-b border-brand-border h-[85px] flex flex-col justify-between shadow-sm">
+    <div class="h-1 bg-brand-red w-full"></div>
+    <div class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3 sm:gap-4">
+      <a href="home.html" target="contenido" class="flex items-center gap-2.5 sm:gap-3 group focus-visible:ring-2 focus-visible:ring-brand-charcoal rounded-lg p-1" aria-label="Ir a inicio">
+        <img src="img/Logo del e-commerce 1.png" alt="Logo Graded &amp; Sealed TCG" class="h-10 sm:h-12 w-auto object-contain transition-transform group-hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/120x60/DC2626/FFFFFF?text=G%26S+TCG'" />
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1">
+            <span class="font-black text-lg sm:text-xl tracking-tight text-brand-charcoal">GRADED &amp; SEALED</span>
+            <span class="font-black text-lg sm:text-xl text-brand-red tracking-tight">TCG</span>
+          </div>
+          <span class="text-[9px] sm:text-[10px] font-bold tracking-widest uppercase text-brand-muted hidden xs:inline">Bóveda de Coleccionismo y Slabs PSA</span>
+        </div>
+      </a>
+
+      <div class="relative flex-1 max-w-md lg:max-w-lg mx-2 hidden md:block">
+        <form action="home.html" method="GET" target="contenido" class="relative">
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-brand-muted">
+              <i data-lucide="search" class="w-4 h-4"></i>
+            </div>
+            <input 
+              type="search" 
+              name="q"
+              placeholder="Buscar cartas, expansiones o grados PSA... (ej. Charizard, Gengar)"
+              class="w-full pl-10 pr-4 py-2 bg-brand-surface border border-brand-border rounded-lg text-sm text-brand-charcoal placeholder-brand-muted focus:bg-white focus:border-brand-charcoal transition"
+            />
+          </div>
+        </form>
+      </div>
+
+      <nav aria-label="Navegación principal" class="flex items-center gap-2 sm:gap-3">
+        <a 
+          href="tracking.html"
+          target="contenido"
+          class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-2 text-xs sm:text-sm font-semibold text-brand-slate hover:text-brand-charcoal hover:bg-slate-100 rounded-lg transition"
+          aria-label="Ver historial y seguimiento de pedidos"
+        >
+          <i data-lucide="truck" class="w-4 h-4 text-brand-muted"></i>
+          <span class="hidden sm:inline">Tracking</span>
+        </a>
+
+        <a 
+          href="login.html"
+          target="contenido"
+          id="btn-nav-account"
+          class="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-2 text-xs sm:text-sm font-semibold text-brand-charcoal border border-slate-300 hover:bg-slate-100 rounded-lg transition"
+          aria-label="Acceder a mi cuenta de usuario"
+        >
+          <i data-lucide="user" class="w-4 h-4 text-brand-charcoal"></i>
+          <span id="nav-user-label">Mi Cuenta</span>
+        </a>
+
+        <button 
+          type="button" 
+          onclick="logoutNav()"
+          id="btn-nav-logout"
+          class="hidden px-2 py-2 text-xs font-bold text-red-600 hover:bg-red-50 rounded-lg transition"
+          title="Cerrar sesión actual"
+          aria-label="Cerrar sesión actual"
+        >
+          <i data-lucide="log-out" class="w-4 h-4"></i>
+        </button>
+
+        <a 
+          href="cart.html"
+          target="contenido"
+          class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-bold text-white bg-brand-red hover:bg-brand-darkred rounded-lg transition shadow-sm relative touch-target flex items-center justify-center"
+          aria-label="Ver bolsa de compras"
+        >
+          <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+          <span class="hidden xs:inline">Bolsa</span>
+          <span 
+            id="cart-badge" 
+            class="inline-flex items-center justify-center w-5 h-5 text-[11px] font-black bg-brand-lightgold text-brand-darkgold border border-brand-red rounded-full"
+          >
+            0
+          </span>
+        </a>
+      </nav>
+    </div>
+  </header>
+  <script>
+    function syncNavState() {
+      try {
+        const cart = JSON.parse(localStorage.getItem('gstcg_cart') || '[]');
+        const count = cart.reduce((acc, it) => acc + (it.quantity || 1), 0);
+        const badge = document.getElementById('cart-badge');
+        if (badge) badge.textContent = count;
+
+        const user = JSON.parse(localStorage.getItem('gstcg_user') || 'null');
+        const userLabel = document.getElementById('nav-user-label');
+        const logoutBtn = document.getElementById('btn-nav-logout');
+        if (user && user.nombre) {
+          if (userLabel) userLabel.textContent = user.nombre.split(' ')[0];
+          if (logoutBtn) logoutBtn.classList.remove('hidden');
+        } else {
+          if (userLabel) userLabel.textContent = 'Mi Cuenta';
+          if (logoutBtn) logoutBtn.classList.add('hidden');
+        }
+      } catch(e) {}
+    }
+    function logoutNav() {
+      localStorage.removeItem('gstcg_user');
+      syncNavState();
+      const frame = window.parent ? window.parent.frames['contenido'] : null;
+      if (frame) {
+        try { frame.location.href = 'login.html'; } catch(e) {}
+      }
+    }
+    window.addEventListener('storage', syncNavState);
+    setInterval(syncNavState, 800);
+    document.addEventListener('DOMContentLoaded', () => {
+      syncNavState();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
+
